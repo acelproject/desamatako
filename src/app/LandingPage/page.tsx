@@ -58,7 +58,7 @@ export default function LandingPage() {
   return (
     <>
       <div className="w-full h-[100vh] overflow-hidden relative ">
-        <Navbar/>
+        <Navbar />
         <div className=" -z-20 w-full top-0 h-full  absolute block banner">
           <Swiper
             spaceBetween={30}
@@ -107,7 +107,7 @@ export default function LandingPage() {
           </p>
         </div>
       </div>
-      <Links/>
+      <Links />
 
       <DataPenduduk />
 
@@ -117,6 +117,7 @@ export default function LandingPage() {
 
       <InfoPembangunan />
 
+      <Footer />
       {/* Link Surat */}
       <div
         className={`  fixed  xl:bottom-[50%]  bottom-[30%]  left-0 w-32 m-5 rounded-md z-[200] ${
@@ -151,7 +152,6 @@ export default function LandingPage() {
             />
           </div>
         </div>
-        <Footer/>
       </div>
       {/* End Link Surat */}
     </>
