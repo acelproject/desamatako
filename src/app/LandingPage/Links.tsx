@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import Link from "next/link";
 import link1 from "../../../public/assets/img/garuda.png";
@@ -6,6 +8,7 @@ import link3 from "../../../public/assets/img/sulteng.png";
 import link4 from "../../../public/assets/img/polda.png";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 // const links = [
 //   {
@@ -26,11 +29,19 @@ import Image from "next/image";
 //   },
 // ];
 
-type ScrollProps = {
-  onScroll: Boolean;
-};
+export default function Links() {
+  const [onScroll, setOnScroll] = useState(false);
+  const handleViewLinks = () => {
+    if (window.scrollY >= 1) {
+      setOnScroll(true);
+    } else {
+      setOnScroll(false);
+    }
+  };
 
-export default function Links({ onScroll }: ScrollProps) {
+  useEffect(() => {
+    window.addEventListener("scroll", handleViewLinks);
+  });
   return (
     <div className="w-full  text-center absolute md:-bottom-[80px] xl:-bottom-[80px]">
       <motion.div

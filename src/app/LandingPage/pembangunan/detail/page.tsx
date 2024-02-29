@@ -22,8 +22,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 type DetailProps = {
-  onDetail: any;
-  handleClose: any;
+  onDetail?: any;
+  handleClose?: any;
 };
 
 export default function DetailPembangunan(props: DetailProps) {

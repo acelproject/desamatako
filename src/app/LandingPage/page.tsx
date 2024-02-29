@@ -104,7 +104,7 @@ export default function LandingPage() {
           </p>
         </div>
       </div>
-      <Links onScroll={onScroll} />
+      <Links/>
 
       <DataPenduduk />
 
