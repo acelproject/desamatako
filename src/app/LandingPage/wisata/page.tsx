@@ -6,7 +6,7 @@ import beach from "../../../../public/assets/img/pantai3.jpg";
 import goa from "../../../../public/assets/img/goa1.jpg";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import DetailWisata from "./detail/page";
+import DetailWisata from "./detail";
 import BgTitle from "@/components/elements/BgTitle";
 import ViewMoreBtn from "@/components/fragments/ViewMoreBtn";
 // import BgTitle from "@/pages/components/elements/BgTitle";
