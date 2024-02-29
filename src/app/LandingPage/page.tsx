@@ -22,6 +22,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import { EffectFade, Navigation, Pagination, Autoplay } from "swiper/modules";
+import Navbar from "@/components/layouts/Navbar";
+import Footer from "@/components/layouts/Footer";
 
 export default function LandingPage() {
   const [count, setCount] = useState(1);
@@ -56,6 +58,7 @@ export default function LandingPage() {
   return (
     <>
       <div className="w-full h-[100vh] overflow-hidden relative ">
+        <Navbar/>
         <div className=" -z-20 w-full top-0 h-full  absolute block banner">
           <Swiper
             spaceBetween={30}
@@ -148,6 +151,7 @@ export default function LandingPage() {
             />
           </div>
         </div>
+        <Footer/>
       </div>
       {/* End Link Surat */}
     </>
