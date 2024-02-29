@@ -27,7 +27,7 @@ import Image from "next/image";
 // ];
 
 type ScrollProps = {
-  onScroll: any;
+  onScroll: Boolean;
 };
 
 export default function Links(props: ScrollProps) {
