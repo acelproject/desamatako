@@ -189,6 +189,7 @@ export default function WritingLetters() {
                     >
                       {menusDusun.map((data) => (
                         <li
+                        key={data.id}
                           className="hover:bg-primary px-3 py-1 transition-all duration-100"
                           onClick={() => handleDropDusun(data.nama)}
                         >
@@ -363,6 +364,7 @@ export default function WritingLetters() {
                   >
                     {menusSurat.map((data) => (
                       <li
+                      key={data.id}
                         className="hover:bg-primary px-3 py-1 transition-all duration-100"
                         onClick={() =>
                           handleDropJenis({

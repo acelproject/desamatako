@@ -109,6 +109,7 @@ export default function DokDetailPembangunanComponent(props: DokProps) {
         <div className="flex xl:gap-4 mt-10">
           {progressPage1Img.map((data) => (
             <div
+            key={data.id}
               className="progress-img-wrap w-1/2 h-52 overflow-hidden rounded-md border-4 border-gray-300 group"
               onMouseEnter={() => setProgressImgHover(!progressImgHover)}
               onMouseLeave={() => setProgressImgHover(!progressImgHover)}
@@ -129,6 +130,7 @@ export default function DokDetailPembangunanComponent(props: DokProps) {
         <div className="flex xl:gap-4 mt-10">
           {progressPage2Img.map((data) => (
             <div
+            key={data.id}
               className="progress-img-wrap w-1/2 h-52 overflow-hidden rounded-md border-4 border-gray-300 group"
               onMouseEnter={() => setProgressImgHover(!progressImgHover)}
               onMouseLeave={() => setProgressImgHover(!progressImgHover)}
@@ -149,6 +151,7 @@ export default function DokDetailPembangunanComponent(props: DokProps) {
         <div className="flex xl:gap-4 mt-10">
           {progressPage3Img.map((data) => (
             <div
+            key={data.id}
               className="progress-img-wrap w-1/2 h-52 overflow-hidden rounded-md border-4 border-gray-300 group"
               onMouseEnter={() => setProgressImgHover(!progressImgHover)}
               onMouseLeave={() => setProgressImgHover(!progressImgHover)}
