@@ -1,0 +1,23 @@
+
+import Head from "next/head";
+import React from "react";
+
+export default function ApdPageLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <>
+      {/* <Head>
+        <title>Landing Page</title>
+      </Head> */}
+
+      <div>
+
+        {children}
+
+      </div>
+    </>
+  );
+}

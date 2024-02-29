@@ -16,6 +16,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -24,4 +28,171 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+.banner::after {
+  @apply absolute block z-20 w-full h-full top-0 left-0 bg-gradient-to-t from-black/70 via-black/70 to-black/70;
+  content: "";
+}
+
+/* .landingTitle::after {
+  @apply block w-[30%] mx-auto bg-sky-500 h-1 rounded-md;
+  content: "";
+} */
+
+.footer-sosmed-fb:hover {
+  @apply border-none;
+  /* background-color: #000000de; */
+}
+
+.footer-sosmed-fb:hover div {
+  @apply translate-y-0;
+}
+.footer-sosmed-wa:hover {
+  @apply border-none;
+}
+
+.footer-sosmed-wa:hover div {
+  @apply translate-y-0;
+}
+.btn-sejarah-selengkapnya:hover {
+  @apply text-white border-none;
+}
+.btn-sejarah-selengkapnya:hover div {
+  @apply translate-x-0;
+}
+
+.wsta-img-lp1 {
+  @apply relative overflow-hidden;
+}
+
+.wsta-img-lp1::before {
+  content: "";
+  @apply block w-full h-full absolute bg-primary z-10 -translate-y-52 -translate-x-52 delay-100 duration-200 opacity-0;
+}
+.wsta-img-lp1:hover::before {
+  @apply -translate-y-0 -translate-x-0 opacity-60;
+}
+
+.wsta-img-lp2 {
+  @apply relative overflow-hidden;
+}
+.wsta-img-lp2::before {
+  content: "";
+  @apply block w-full h-full absolute bg-primary z-10 -translate-y-52 translate-x-52 delay-100 duration-200 opacity-0;
+}
+.wsta-img-lp2:hover::before {
+  @apply translate-y-0 translate-x-0 opacity-60;
+}
+.wsta-img-lp3 {
+  @apply relative overflow-hidden;
+}
+.wsta-img-lp3::before {
+  content: "";
+  @apply block w-full h-full absolute bg-primary z-10 -translate-y-52 transition-all  delay-100 duration-200 opacity-0;
+}
+.wsta-img-lp3:hover::before {
+  @apply translate-y-0  opacity-60;
+}
+
+.build-img-lp1 {
+  @apply relative overflow-hidden;
+}
+
+.build-img-lp1::before {
+  content: "";
+  @apply block w-full h-full absolute bg-primary z-10 translate-y-52 -translate-x-52 delay-100 duration-200 opacity-0;
+}
+.build-img-lp1:hover::before {
+  @apply translate-y-0 -translate-x-0 opacity-60;
+}
+
+.build-img-lp2 {
+  @apply relative overflow-hidden;
+}
+.build-img-lp2::before {
+  content: "";
+  @apply block w-full h-full absolute bg-primary z-10 translate-y-52 translate-x-52 delay-100 duration-200 opacity-0;
+}
+.build-img-lp2:hover::before {
+  @apply translate-y-0 translate-x-0 opacity-60;
+}
+.build-img-lp3 {
+  @apply relative overflow-hidden;
+}
+.build-img-lp3::before {
+  content: "";
+  @apply block w-full h-full absolute bg-primary z-10 translate-y-52 transition-all  delay-100 duration-200 opacity-0;
+}
+.build-img-lp3:hover::before {
+  @apply -translate-y-0  opacity-60;
+}
+
+.bg-title::after {
+  content: "";
+  @apply absolute  opacity-30 w-full h-full left-0 top-0 bg-gradient-to-r from-black via-white to-black;
+}
+
+.wisata-img {
+  clip-path: polygon(0% 0%, 90% 0, 100% 49%, 90% 100%, 0% 100%);
+}
+
+.wisata-card {
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 100%, 10% 50%);
+}
+
+.wisata-img::before {
+  content: "";
+  @apply absolute block left-0 top-0 w-1/2 bg-primary opacity-50 h-full  md:-translate-x-48 lg:-translate-x-80;
+  transition: 0.5s;
+}
+.wisata-img::after {
+  content: "";
+  @apply absolute block right-0 top-0 w-1/2 bg-primary h-full  md:translate-x-48 lg:translate-x-80;
+  transition: 0.5s;
+}
+
+.wisata-img:hover::before {
+  @apply -translate-x-0;
+}
+.wisata-img:hover::after {
+  @apply -translate-x-0;
+}
+.wisata-img:hover .zoom-icon {
+  @apply scale-100;
+}
+
+.build-img-detail::after {
+  content: "";
+  @apply absolute block left-0 top-0 bg-gradient-to-t from-transparent via-transparent to-white z-20 w-full h-full;
+}
+
+/* Detail Pembangunan */
+
+.progress-img::after {
+  content: "";
+  transition: 0.5s;
+  @apply absolute block left-0 translate-y-20 bg-gradient-to-t from-black via-black to-transparent  z-20 w-full h-full;
+}
+
+.progress-img-wrap:hover .progress-img::after {
+  @apply opacity-0;
+}
+
+.progress-img::before {
+  content: "";
+  transition: 0.5s;
+  @apply absolute block left-0 top-0 opacity-0 bg-black  z-20 w-full h-full;
+}
+
+.progress-img-wrap:hover .progress-img::before {
+  @apply opacity-70;
+}
+
+/* pop up surat */
+.pop-up-surat {
+  transition: 0.4s;
+}
+.img-pop-up-surat {
+  transition: 0.4s;
 }

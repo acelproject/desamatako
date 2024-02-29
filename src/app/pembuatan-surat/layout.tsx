@@ -1,0 +1,24 @@
+import Footer from "@/components/layouts/Footer";
+import Navbar from "@/components/layouts/Navbar";
+import Head from "next/head";
+import React from "react";
+
+export default function PermohonanSuratPageLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <>
+      {/* <Head>
+        <title>Landing Page</title>
+      </Head> */}
+
+      <div>
+        <Navbar />
+        {children}
+        <Footer />
+      </div>
+    </>
+  );
+}
