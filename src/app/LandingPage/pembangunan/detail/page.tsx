@@ -27,7 +27,7 @@ type DetailProps = {
 };
 
 export default function DetailPembangunan(props: DetailProps) {
-  const { onDetail, handleClose } = props;
+  const { onDetail, handleClose } = {...props};
   return (
     <div
       className={`fixed bg-black/90 w-[100%] h-[100vh] left-0 top-0 z-[9999] ${
