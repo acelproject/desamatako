@@ -26,11 +26,8 @@ import Image from "next/image";
 //   },
 // ];
 
-type ScrollProps = {
-  onScroll: Boolean;
-};
 
-export default function Links(props: ScrollProps) {
+export default function Links(props: {onScroll:any}) {
   const { onScroll } = props;
   return (
     <div className="w-full  text-center absolute md:-bottom-[80px] xl:-bottom-[80px]">
