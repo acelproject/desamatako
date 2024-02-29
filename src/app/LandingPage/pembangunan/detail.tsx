@@ -1,21 +1,21 @@
 import { IoIosClose, IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Image from "next/image";
 // slide pantai
-import beach1 from "../../../../../public/assets/img/pantai1.jpg";
-import beach2 from "../../../../../public/assets/img/pantai2.jpg";
-import beach3 from "../../../../../public/assets/img/pantai3.jpg";
+import beach1 from "../../../../public/assets/img/pantai1.jpg";
+import beach2 from "../../../../public/assets/img/pantai2.jpg";
+import beach3 from "../../../../public/assets/img/pantai3.jpg";
 // slide air terjun
-import arter1 from "../../../../../public/assets/img/arter1.jpg";
-import arter2 from "../../../../../public/assets/img/arter2.jpg";
-import arter3 from "../../../../../public/assets/img/arter3.jpg";
+import arter1 from "../../../../public/assets/img/arter1.jpg";
+import arter2 from "../../../../public/assets/img/arter2.jpg";
+import arter3 from "../../../../public/assets/img/arter3.jpg";
 // slide goa
-import goa1 from "../../../../../public/assets/img/goa1.jpg";
-import goa2 from "../../../../../public/assets/img/goa2.jpg";
-import goa3 from "../../../../../public/assets/img/goa3.jpg";
+import goa1 from "../../../../public/assets/img/goa1.jpg";
+import goa2 from "../../../../public/assets/img/goa2.jpg";
+import goa3 from "../../../../public/assets/img/goa3.jpg";
 import { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation} from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
@@ -27,7 +27,7 @@ type DetailProps = {
 };
 
 export default function DetailPembangunan(props: DetailProps) {
-  const { onDetail, handleClose } = {...props};
+  const { onDetail, handleClose } = props;
   return (
     <div
       className={`fixed bg-black/90 w-[100%] h-[100vh] left-0 top-0 z-[9999] ${
@@ -46,7 +46,11 @@ export default function DetailPembangunan(props: DetailProps) {
             }}
           >
             <SwiperSlide>
-              <Image src={beach1} alt="" className="h-[500px] w-max mx-auto"></Image>
+              <Image
+                src={beach1}
+                alt=""
+                className="h-[500px] w-max mx-auto"
+              ></Image>
             </SwiperSlide>
             <SwiperSlide>
               <Image src={beach2} alt="" className="h-[500px]"></Image>
@@ -66,7 +70,11 @@ export default function DetailPembangunan(props: DetailProps) {
             }}
           >
             <SwiperSlide>
-              <Image src={arter1} alt="" className="h-[500px] w-max mx-auto"></Image>
+              <Image
+                src={arter1}
+                alt=""
+                className="h-[500px] w-max mx-auto"
+              ></Image>
             </SwiperSlide>
             <SwiperSlide>
               <Image src={arter2} alt="" className="h-[500px]"></Image>
@@ -86,7 +94,11 @@ export default function DetailPembangunan(props: DetailProps) {
             }}
           >
             <SwiperSlide>
-              <Image src={goa1} alt="" className="h-[500px] w-max mx-auto"></Image>
+              <Image
+                src={goa1}
+                alt=""
+                className="h-[500px] w-max mx-auto"
+              ></Image>
             </SwiperSlide>
             <SwiperSlide>
               <Image src={goa2} alt="" className="h-[500px]"></Image>
@@ -116,5 +128,3 @@ export default function DetailPembangunan(props: DetailProps) {
     </div>
   );
 }
-
-

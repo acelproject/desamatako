@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 // import BgTitle from "@/pages/components/elements/BgTitle";
 // import ViewMoreBtn from "@/pages/components/fragments/ViewMoreBtn";
-import DetailPembangunan from "./detail/page";
+import DetailPembangunan from "./detail";
 import BgTitle from "@/components/elements/BgTitle";
 import ViewMoreBtn from "@/components/fragments/ViewMoreBtn";
 export default function Wisata() {
