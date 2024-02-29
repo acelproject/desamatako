@@ -3,17 +3,17 @@
 import { IoIosClose, IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Image from "next/image";
 // slide pantai
-import beach1 from "../../../../../public/assets/img/pantai1.jpg";
-import beach2 from "../../../../../public/assets/img/pantai2.jpg";
-import beach3 from "../../../../../public/assets/img/pantai3.jpg";
+import beach1 from "../../../../public/assets/img/pantai1.jpg";
+import beach2 from "../../../../public/assets/img/pantai2.jpg";
+import beach3 from "../../../../public/assets/img/pantai3.jpg";
 // slide air terjun
-import arter1 from "../../../../../public/assets/img/arter1.jpg";
-import arter2 from "../../../../../public/assets/img/arter2.jpg";
-import arter3 from "../../../../../public/assets/img/arter3.jpg";
+import arter1 from "../../../../public/assets/img/arter1.jpg";
+import arter2 from "../../../../public/assets/img/arter2.jpg";
+import arter3 from "../../../../public/assets/img/arter3.jpg";
 // slide goa
-import goa1 from "../../../../../public/assets/img/goa1.jpg";
-import goa2 from "../../../../../public/assets/img/goa2.jpg";
-import goa3 from "../../../../../public/assets/img/goa3.jpg";
+import goa1 from "../../../../public/assets/img/goa1.jpg";
+import goa2 from "../../../../public/assets/img/goa2.jpg";
+import goa3 from "../../../../public/assets/img/goa3.jpg";
 import { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
