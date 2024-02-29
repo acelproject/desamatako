@@ -9,7 +9,7 @@ import History from "./sejarah/page";
 import DataPenduduk from "./data-penduduk/page";
 import Wisata from "./wisata/page";
 import InfoPembangunan from "./pembangunan/page";
-import Links from "./links/page";
+import Links from "./Links";
 import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
