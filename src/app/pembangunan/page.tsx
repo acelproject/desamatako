@@ -1,5 +1,4 @@
 "use client";
-
 import PagesWrapper from "../../components/layouts/PagesWrapper";
 import ilustrasiBuilding from "../../../public/assets/img/build-ilus.png";
 import Image from "next/image";
