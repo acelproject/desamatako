@@ -1,3 +1,5 @@
+"use client"
+
 import { IoIosClose, IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Image from "next/image";
 // slide pantai

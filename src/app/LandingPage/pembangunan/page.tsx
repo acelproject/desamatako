@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import arter from "../../../../public/assets/img/arter1.jpg";
 import beach from "../../../../public/assets/img/pantai3.jpg";
