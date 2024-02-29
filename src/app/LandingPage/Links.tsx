@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import link1 from "../../../../public/assets/img/garuda.png";
-import link2 from "../../../../public/assets/img/tojo-una-una.png";
-import link3 from "../../../../public/assets/img/sulteng.png";
-import link4 from "../../../../public/assets/img/polda.png";
+import link1 from "../../../public/assets/img/garuda.png";
+import link2 from "../../../public/assets/img/tojo-una-una.png";
+import link3 from "../../../public/assets/img/sulteng.png";
+import link4 from "../../../public/assets/img/polda.png";
 
 import Image from "next/image";
 
@@ -30,8 +30,7 @@ type ScrollProps = {
   onScroll: Boolean;
 };
 
-
-export default function Links({onScroll}: ScrollProps) {
+export default function Links({ onScroll }: ScrollProps) {
   return (
     <div className="w-full  text-center absolute md:-bottom-[80px] xl:-bottom-[80px]">
       <motion.div
@@ -49,10 +48,7 @@ export default function Links({onScroll}: ScrollProps) {
         }}
       >
         <div className="w-1/5 ">
-          <Link
-            href={`https://indonesia.go.id/`}
-            className=" " target="_blank"
-          >
+          <Link href={`https://indonesia.go.id/`} className=" " target="_blank">
             <Image
               src={link1}
               alt="Indonesia"
@@ -61,7 +57,11 @@ export default function Links({onScroll}: ScrollProps) {
           </Link>
         </div>
         <div className="w-1/5 ">
-          <Link href={`https://tojounauna.go.id/`} className=" " target="_blank">
+          <Link
+            href={`https://tojounauna.go.id/`}
+            className=" "
+            target="_blank"
+          >
             <Image
               src={link2}
               alt="Tojo Una-una"
@@ -70,7 +70,11 @@ export default function Links({onScroll}: ScrollProps) {
           </Link>
         </div>
         <div className="w-1/5">
-          <Link href={`https://sultengprov.go.id/ `} className=" " target="_blank">
+          <Link
+            href={`https://sultengprov.go.id/ `}
+            className=" "
+            target="_blank"
+          >
             <Image
               src={link3}
               alt="Sulteng"
@@ -79,7 +83,11 @@ export default function Links({onScroll}: ScrollProps) {
           </Link>
         </div>
         <div className="w-1/5">
-          <Link href={`https://www.poldasulteng.com/`} className=" " target="_blank">
+          <Link
+            href={`https://www.poldasulteng.com/`}
+            className=" "
+            target="_blank"
+          >
             <Image
               src={link4}
               alt="Polda Sulteng"
