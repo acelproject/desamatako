@@ -1,4 +1,6 @@
 
+import Footer from "@/components/layouts/Footer";
+import Navbar from "@/components/layouts/Navbar";
 import Head from "next/head";
 import React from "react";
 
@@ -14,9 +16,9 @@ export default function ApdPageLayout({
       </Head> */}
 
       <div>
-
+        <Navbar/>
         {children}
-
+        <Footer/>
       </div>
     </>
   );

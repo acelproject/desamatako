@@ -2,6 +2,7 @@ import AdminWrapper from "../../AdminWrapper";
 import { useRouter } from "next/router";
 import DetailSuratHibahView from "../DetailSuratHibahView/DetailSuratHibahView";
 import DetailSuratJualBeliView from "../DetailSuratJualBeliView";
+import Link from "next/link";
 
 type DetailSuratProps = {
   params: { slug: string };
@@ -55,11 +56,16 @@ export default function AdminDetailPermohonanSurat(props: DetailSuratProps) {
             )}
             {params.slug[0] === "2" && <DetailSuratJualBeliView data={surat} />}
             <div
-              className="flex justify-between mt-8 font-semibold text-white text-sm border-t 
+              className="flex justify-between mt-8 font-medium text-white text-sm border-t 
             border-slate-200 pt-4"
             >
-              <div className="bg-slate-500 px-2 py-1 rounded-sm">Kembali</div>
-              <div className="bg-primary px-2 py-1 rounded-sm">Proses</div>
+              <Link
+                href={`/admin/permohonan-surat`}
+                className="bg-slate-500 px-2 py-1 rounded-sm"
+              >
+                Kembali
+              </Link>
+              <Link href={`/admin/permohonan-surat`} className="bg-primary px-2 py-1 rounded-sm">Proses</Link>
             </div>
           </div>
         </div>

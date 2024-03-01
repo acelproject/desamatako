@@ -13,6 +13,7 @@ export default function TableWrapper(props: {
 }) {
   const { children, tableTitle } = props;
   const [showEntries, setShowEntries] = useState(false);
+  const [countEntries, setcountShowEntries] = useState(10);
 
   const handleHideEntries = () => {
     setShowEntries(!showEntries);
@@ -75,7 +76,7 @@ export default function TableWrapper(props: {
               }`}
               onClick={() => handleHideEntries()}
             >
-              <div>10</div>
+              <div>{countEntries}</div>
               <div>
                 <TbSelector />
               </div>
@@ -84,16 +85,16 @@ export default function TableWrapper(props: {
                   showEntries ? "block" : "hidden"
                 }`}
               >
-                <div className="text-start ps-3 hover:bg-primary hover:text-white">
+                <div className="text-start ps-3 hover:bg-primary hover:text-white" onClick={()=>setcountShowEntries(10)}>
                   10
                 </div>
-                <div className="text-start ps-3 hover:bg-primary hover:text-white">
+                <div className="text-start ps-3 hover:bg-primary hover:text-white" onClick={()=>setcountShowEntries(25)}>
                   25
                 </div>
-                <div className="text-start ps-3 hover:bg-primary hover:text-white">
+                <div className="text-start ps-3 hover:bg-primary hover:text-white" onClick={()=>setcountShowEntries(50)}>
                   50
                 </div>
-                <div className="text-start ps-3 hover:bg-primary hover:text-white">
+                <div className="text-start ps-3 hover:bg-primary hover:text-white" onClick={()=>setcountShowEntries(100)}>
                   100
                 </div>
               </div>

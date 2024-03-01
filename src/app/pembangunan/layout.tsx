@@ -16,9 +16,9 @@ export default function PembangunanPageLayout({
       </Head> */}
 
       <div>
-        {/* <Navbar /> */}
+        <Navbar />
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </>
   );
