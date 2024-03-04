@@ -104,7 +104,7 @@ const menus = [
   },
 ];
 
-export default function Layout({ children,statis }: {children:React.ReactNode}) {
+export default function Layout({ children}: {children:React.ReactNode}) {
   // const [menuComponent, setMenuComponent] = useState(1);
   // console.log(menuComponent);
 
