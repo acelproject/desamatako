@@ -8,7 +8,7 @@ import { MdEmail } from "react-icons/md";
 export default function Footer() {
   return (
     <div className="bg-[#343a40] relative w-full left-0 bottom-0 md:px-20">
-      <div className="flex w-full gap-5 mx-auto pb-10">
+      <div className="md:flex block w-full gap-5 mx-auto pb-10">
         <div className="w-1/3 pt-10">
           <div className="flex items-center gap-3">
             <Image src={logo} alt="Logo Desa Matako" className="w-8" />

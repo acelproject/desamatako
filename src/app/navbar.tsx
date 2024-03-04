@@ -149,7 +149,7 @@ export default function Navbar() {
     setSubMenu(false);
   };
   return (
-    <div>
+    <div className="">
       {pathName === "/" ? (
         <div
           className={`w-full fixed top-0 transition-all duration-20 delay-100 ${

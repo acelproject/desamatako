@@ -1,12 +1,12 @@
 import Table from "@/components/elements/Table";
-import AdminWrapper from "../AdminWrapper";
+// import AdminWrapper from "../AdminWrapper";
 
 
 
 
 export default function PermohonanSuratAdmin() {
   return (
-    <AdminWrapper>
+
       <>
       <div className="w-full px-7 mb-6">
         <h1 className="text-2xl font-semibold">Permohonan Surat</h1>
@@ -15,6 +15,5 @@ export default function PermohonanSuratAdmin() {
         <Table title="Permohonan Surat" />
       </div>
     </>
-    </AdminWrapper>
   );
 }

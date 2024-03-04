@@ -14,6 +14,7 @@ import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { TbSend } from "react-icons/tb";
 
 // Import Swiper styles
 import "swiper/css";
@@ -95,14 +96,14 @@ export default function LandingPage() {
           <Image src={hero} alt="Desa Matako" />
         </div>
 
-        <div className="text-white md:mt-48 xl:mt-48 lg:mt-64 w-6/12 m-auto py-10 flex flex-col justify-center items-center text-center">
-          <h1 className="text-4xl font-normal">
+        <div className="text-white mt-[150px] md:mt-48 xl:mt-48 lg:mt-64 w-6/12 m-auto py-10 flex flex-col justify-center items-center text-center">
+          <h1 className="md:text-4xl text-xl font-normal">
             Selamat Datang di Website Resmi
           </h1>
           <h1 className="text-7xl font-bold bg-gradient-to-r from-purple-500 via-primary  to-purple-500  p-4 text-transparent bg-clip-text font-satisfy">
             Desa Matako
           </h1>
-          <p className="mt-[-5px] text-xl font-medium">
+          <p className="mt-[-5px] md:text-xl text-sm font-medium">
             Kec. Tojo Barat, Kab. Tojo Una-Una
           </p>
         </div>
@@ -119,25 +120,22 @@ export default function LandingPage() {
 
       <Footer />
       {/* Link Surat */}
-      <div
-        className={`  fixed  xl:bottom-[50%]  bottom-[30%]  left-0 w-32 m-5 rounded-md z-[200] ${
+      {/* <div
+        className={`  fixed  xl:bottom-[50%]  bottom-[30%]  left-0 w-32 z-[200] ${
           pathName !== "/" ? "hidden" : "block"
         }`}
       >
         <div className="relative flex items-center ">
           <div
-            className={`pop-up-surat relative bg-primary rounded-md p-5  ${
-              onScroll ? "scale-1" : "scale-0"
+            className={`pop-up-surat relative bg-primary p-3 rounded-e-md ${
+              onScroll ? "scale-1" : "scale-1"
             } `}
           >
             <p className="text-sm font-medium text-white mb-3">
               Ingin Membuat Permohonan Surat ?
             </p>
-            <Link
-              href={`/pembuatan-surat`}
-              className="bg-white text-sm px-2 py-1 text-primary rounded-md"
-            >
-              Klik Disini
+            <Link href={`/pembuatan-surat`} className=" ">
+              <TbSend className="text-2xl text-white" />
             </Link>
           </div>
           <div
@@ -152,7 +150,7 @@ export default function LandingPage() {
             />
           </div>
         </div>
-      </div>
+      </div> */}
       {/* End Link Surat */}
     </>
   );

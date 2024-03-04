@@ -13,14 +13,14 @@ import {
 } from "react-icons/md";
 import { RiMailSettingsLine } from "react-icons/ri";
 import { TbUsers } from "react-icons/tb";
-import AdminWrapper from "./AdminWrapper";
+// import AdminWrapper from "./AdminWrapper";
 
 
 
 export default function AdminPage(params: {}) {
 
   return (
-    <AdminWrapper>
+
     <>
     <div className="w-full px-7">
       <h1 className="text-3xl font-semibold ">Dashboard</h1>
@@ -139,6 +139,6 @@ export default function AdminPage(params: {}) {
       </div>
     </div>
   </>
-  </AdminWrapper>
+
   );
 };

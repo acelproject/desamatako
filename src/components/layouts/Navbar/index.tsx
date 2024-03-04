@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import logo from "../../../../public/assets/img/logo.png";
+import { FaBarsStaggered } from "react-icons/fa6";
 
 let submenus = [
   {
@@ -153,34 +154,34 @@ export default function Navbar() {
       {pathName === "/" ? (
         <div
           className={`w-full fixed top-0 transition-all duration-20 delay-100 ${
-            onScroll ? "bg-[#343a40]" : "bg-transparent"
-          }  h-auto items-center flex justify-between px-20 z-50`}
+            onScroll ? "bg-[#343a40]" : "bg-transparent "
+          }  h-auto items-center flex md:justify-between justify-evenly md:px-20 z-50`}
           id="top"
         >
           <div className=" py-3 flex gap-3 items-center ">
             <div
               className={`transition-all duration-20 delay-100 ${
-                onScroll ? "w-8" : "w-14"
+                onScroll ? "w-8" : "md:w-14 w-10"
               }`}
             >
               <Image src={logo} alt="Logo Desa Matako" />
             </div>
             <div
               className={`w-[1px] bg-white transition-all duration-20 delay-100 ${
-                onScroll ? "h-8" : " h-14"
+                onScroll ? "h-8" : " md:h-14 h-10"
               }`}
             ></div>
             <div className="-mt-1">
               <h1
                 className={`font-bold text-white transition-all duration-20 delay-100 ${
-                  onScroll ? "text-lg" : " text-3xl "
+                  onScroll ? "md:text-lg text-sm" : " md:text-3xl text-md"
                 }`}
               >
                 Desa Matako
               </h1>
               <p
                 className={`text-gray-200 font-semibold transition-all duration-20 delay-100 ${
-                  onScroll ? "text-xs" : " "
+                  onScroll ? "md:text-xs text-[9px]" : "md:text-xs text-[10px] "
                 }`}
               >
                 Kec.Tojo Barat, Kab. Tojo Una-Una
@@ -188,7 +189,7 @@ export default function Navbar() {
             </div>
           </div>
           <div>
-            <ul className="flex  gap-8 items-center">
+            <ul className="md:flex hidden  gap-8 items-center">
               <div
                 className={` relative flex justify-center h-8 items-center ${
                   pathName === `${`/`}` ? "text-white" : "text-gray-300"
@@ -281,6 +282,10 @@ export default function Navbar() {
                 </button>
               </li>
             </ul>
+            {/* menu bars */}
+            <div>
+              <FaBarsStaggered className="text-primary text-lg" />
+            </div>
           </div>
         </div>
       ) : (
@@ -484,5 +489,3 @@ export default function Navbar() {
     </div>
   );
 }
-
-

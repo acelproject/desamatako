@@ -1,5 +1,4 @@
 import TableWrapper from "@/components/elements/table/TableWrapper";
-import AdminWrapper from "../AdminWrapper";
 import TableThead from "@/components/elements/table/TableThead";
 import TableTh from "@/components/elements/table/TableTh";
 import TableTbody from "@/components/elements/table/TableTbody";
@@ -9,7 +8,6 @@ import { GoTrash } from "react-icons/go";
 
 export default function DataKematianAdmin() {
   return (
-    <AdminWrapper>
       <>
         <div className="w-full px-7 mb-6">
           <h1 className="text-2xl font-semibold">Data Kematian</h1>
@@ -53,6 +51,6 @@ export default function DataKematianAdmin() {
           </TableWrapper>
         </div>
       </>
-    </AdminWrapper>
+
   );
 }

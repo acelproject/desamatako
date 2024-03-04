@@ -40,7 +40,7 @@ export default function DashboardAdmin() {
       <>
         <div className="w-full px-7">
           <h1 className="text-3xl font-semibold ">Dashboard</h1>
-        </div>
+        </div>                                                                      
         <div className="w-3/12 px-7 mt-3">
           <div
             className={`p-2 mb-1 rounded-md ${
