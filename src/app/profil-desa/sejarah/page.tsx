@@ -3,6 +3,7 @@ import Image from "next/image";
 import mapSketch from "../../../../public/assets/img/map-desa.jpg";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import SketsaImg from "./sketsaImg/page";
 
 const dataKepalaDesa = [
   {
@@ -167,9 +168,7 @@ export default function History() {
             Sebagian lagi adalah Nelayan, PNS dan Wiraswasta.
           </p>
         </div>
-        <div className="w-full px-20 gap-10 mt-10 ">
-          <Image src={mapSketch} alt="Map Desa" className="w-11/12 mx-auto" />
-        </div>
+        <SketsaImg/>
         <div className="w-full px-20 gap-10 mt-10 ">
           <p className="text-gray-600 text-md w-full text-justify">
             Unsur-Unsur Lembaga dan Organisasi yang ada yaitu : <br />
