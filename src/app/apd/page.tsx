@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Footer from "@/components/layouts/Footer";
 import Navbar from "@/components/layouts/Navbar";
@@ -7,31 +7,31 @@ import { useReactToPrint } from "react-to-print";
 
 const dataKepalaDesa = [
   {
-    id:1,
+    id: 1,
     nama: "PEDENGKA",
     masaJabatan: "Tahun 1901-1903",
     bg: "bg-gray-100",
   },
   {
-    id:2,
+    id: 2,
     nama: "TIMBALINO",
     masaJabatan: "Tahun 1903-1906",
     bg: "bg-white",
   },
   {
-    id:3,
+    id: 3,
     nama: "PEDENGKA",
     masaJabatan: "Tahun 1906-1909",
     bg: "bg-gray-100",
   },
   {
-    id:4,
+    id: 4,
     nama: "TIMBALINO",
     masaJabatan: "Tahun 1909-1912",
     bg: "bg-white",
   },
   {
-    id:5,
+    id: 5,
     nama: "WONCE",
     masaJabatan: "Tahun 1912-1922",
     bg: "bg-gray-100",
@@ -45,33 +45,7 @@ export default function Apd() {
   });
   return (
     <>
-    <div className="h-[800px]">
-      <div className="flex flex-col px-14 w-full py-5 ">
-        <div className="overflow-x-auto sm:mx-0.5 lg:mx-0.5  ">
-          <div
-            className="py-2 inline-block min-w-full sm:px-6 lg:px-8 "
-            ref={componentRef}
-          >
-            <Table />
-          </div>
-        </div>
-      </div>
-
-      <button onClick={handlePrint} className="bg-blue-500">
-        Print
-      </button>
-
-      <p>sqsqs</p>
-      <p>sqsqs</p>
-      <p>sqsqs</p>
-      <p>sqsqs</p>
-      <p>sqsqs</p>
-      <p>sqsqs</p>
-      <p>sqsqs</p>
-      <p>sqsqs</p>
-      <p>sqsqs</p>
-      <p>sqsqs</p>
-    </div>
+      <div className="h-[800px] py-32 bg-white">halaman TPD</div>
     </>
   );
 }

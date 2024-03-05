@@ -315,7 +315,7 @@ export default function Navbar() {
               </h1>
               <p
                 className={`text-gray-200 font-semibold transition-all duration-20 delay-100 ${
-                  onScroll ? "text-xs" : " "
+                  onScroll ? "md:text-xs text-[9px]" : "md:text-xs text-[10px]"
                 }`}
               >
                 Kec.Tojo Barat, Kab. Tojo Una-Una

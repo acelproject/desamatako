@@ -16,14 +16,6 @@ export default function ApdPageLayout({
       </Head> */}
 
       <div>
-        <p className="mt-40">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-          eligendi quibusdam ea earum atque dolore voluptatum, vero ducimus
-          facilis expedita ut nulla et hic, alias repellendus dolor cumque
-          debitis deserunt natus impedit maiores consequatur molestiae adipisci
-          laudantium. Sint, quam ad praesentium quis exercitationem maxime
-          tempora aspernatur laboriosam, corrupti magni velit.
-        </p>
         <Navbar />
         {children}
         <Footer />
