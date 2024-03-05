@@ -25,6 +25,7 @@ import "swiper/css/pagination";
 import { EffectFade, Navigation, Pagination, Autoplay } from "swiper/modules";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import TextHero from "./textHero/TextHero";
 
 export default function LandingPage() {
   const [count, setCount] = useState(1);
@@ -96,16 +97,8 @@ export default function LandingPage() {
           <Image src={hero} alt="Desa Matako" />
         </div>
 
-        <div className="text-white mt-[150px] xl:mt-96 sm:mt-56 w-6/12 m-auto py-10 flex flex-col justify-center items-center text-center">
-          <h1 className="md:text-4xl text-xl font-normal">
-            Selamat Datang di Website Resmi
-          </h1>
-          <h1 className="text-7xl font-bold bg-gradient-to-r from-purple-500 via-primary  to-purple-500  p-4 text-transparent bg-clip-text font-satisfy">
-            Desa Matako
-          </h1>
-          <p className="mt-[-5px] md:text-xl text-sm font-medium">
-            Kec. Tojo Barat, Kab. Tojo Una-Una
-          </p>
+        <div className="text-white  w-6/12 m-auto py-10 flex flex-col justify-center items-center text-center">
+          <TextHero/>
         </div>
       </div>
       <Links />

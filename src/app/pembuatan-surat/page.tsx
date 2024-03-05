@@ -115,7 +115,9 @@ export default function WritingLetters() {
   return (
     <PagesWrapper pageTitle="Pembuatan Surat">
       <div className="w-full">
-        <h1 className="text-3xl font-semibold text-center mb-10 ">
+        <h1
+          className={`text-3xl font-semibold text-center mb-10 md:text-blue-500 xl:text-red-500`}
+        >
           {" "}
           FORM PERMOHONAN PEMBUATAN SURAT
         </h1>
@@ -189,7 +191,7 @@ export default function WritingLetters() {
                     >
                       {menusDusun.map((data) => (
                         <li
-                        key={data.id}
+                          key={data.id}
                           className="hover:bg-primary px-3 py-1 transition-all duration-100"
                           onClick={() => handleDropDusun(data.nama)}
                         >
@@ -364,7 +366,7 @@ export default function WritingLetters() {
                   >
                     {menusSurat.map((data) => (
                       <li
-                      key={data.id}
+                        key={data.id}
                         className="hover:bg-primary px-3 py-1 transition-all duration-100"
                         onClick={() =>
                           handleDropJenis({
