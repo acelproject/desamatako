@@ -2,7 +2,7 @@ import React from "react";
 
 const TextHero = () => {
   return (
-    <div className="pt-[150px] md:mt-16 lg:mt-48 xl:mt-64 ">
+    <div className="pt-[150px] md:mt-16 lg:mt-56 xl:mt-64 ">
       <h1 className="md:text-4xl text-xl font-normal ">
         Selamat Datang di Website Resmi
       </h1>
