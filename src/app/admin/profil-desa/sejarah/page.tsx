@@ -1,41 +1,39 @@
-
 import { FaMapMarkerAlt } from "react-icons/fa";
 import Image from "next/image";
-import mapSketch from "../../../../public/assets/img/map-desa.jpg";
+import mapSketch from "../../../../../public/assets/img/map-desa.jpg";
 
 const dataKepalaDesa = [
   {
     nama: "PEDENGKA",
     masaJabatan: "Tahun 1901-1903",
-    bg:"bg-gray-100",
+    bg: "bg-gray-100",
   },
   {
     nama: "TIMBALINO",
     masaJabatan: "Tahun 1903-1906",
-    bg:"bg-white",
+    bg: "bg-white",
   },
   {
     nama: "PEDENGKA",
     masaJabatan: "Tahun 1906-1909",
-    bg:"bg-gray-100",
+    bg: "bg-gray-100",
   },
   {
     nama: "TIMBALINO",
     masaJabatan: "Tahun 1909-1912",
-    bg:"bg-white",
+    bg: "bg-white",
   },
   {
     nama: "WONCE",
     masaJabatan: "Tahun 1912-1922",
-    bg:"bg-gray-100",
+    bg: "bg-gray-100",
   },
 ];
 
 export default function History() {
   return (
-
-      <div>
-        <div className="w-full flex px-20 gap-10 mt-4">
+    <div>
+      <div className="w-full flex px-20 gap-10 mt-4">
         <div className="w-[70%] ">
           <h1 className="text-2xl font-bold text-gray-700 mb-2">SEJARAH</h1>
           <p className="text-gray-600 text-md text-justify">
@@ -111,7 +109,7 @@ export default function History() {
                   </tr>
                 </thead>
                 <tbody>
-                  {dataKepalaDesa.map((data,i) => (
+                  {dataKepalaDesa.map((data, i) => (
                     <tr className={`${data.bg} border-b`} key={i}>
                       <td className="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                         {data.nama}
@@ -183,7 +181,6 @@ export default function History() {
           11. Organisasi Pemuda Kristen <br />
         </p>
       </div>
-
-      </div>
+    </div>
   );
 }
