@@ -96,7 +96,7 @@ export default function LandingPage() {
           <Image src={hero} alt="Desa Matako" />
         </div>
 
-        <div className="text-white mt-[150px] md:mt-48 xl:mt-48 lg:mt-64 w-6/12 m-auto py-10 flex flex-col justify-center items-center text-center">
+        <div className="text-white mt-[150px] xl:mt-96 sm:mt-56 w-6/12 m-auto py-10 flex flex-col justify-center items-center text-center">
           <h1 className="md:text-4xl text-xl font-normal">
             Selamat Datang di Website Resmi
           </h1>
