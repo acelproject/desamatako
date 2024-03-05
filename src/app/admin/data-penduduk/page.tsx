@@ -5,6 +5,20 @@ import TableTh from "@/components/elements/table/TableTh";
 import TableTd from "@/components/elements/table/TableTd";
 import { FaRegEye, FaRegEdit } from "react-icons/fa";
 import { GoTrash } from "react-icons/go";
+import Link from "next/link";
+
+const dataPenduduk = [
+  {
+    id:1,
+    dataKeluarga:{
+      kepalaKeluarga:"Yohanes Marchel"
+    },
+    nama:"Yohanes Marchel",
+    nik:720118054100001,
+    tempat : "Dusun 8",
+
+  }
+]
 
 export default function DataPendudukAdmin() {
   return (
@@ -16,6 +30,7 @@ export default function DataPendudukAdmin() {
         <TableWrapper tableTitle="Table Data Penduduk">
           <TableThead>
             <TableTh>No</TableTh>
+            <TableTh><Link href={''} className="bg-primary">edit data keluarga</Link></TableTh>
             <TableTh>nama</TableTh>
             <TableTh>nik</TableTh>
             <TableTh>tempat</TableTh>

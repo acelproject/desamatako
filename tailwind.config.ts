@@ -22,9 +22,10 @@ const config: Config = {
       poppins: ["Poppins"],
     },
     screens: {
-      sm: "576px",
-      md: "960px",
-      lg: "1440px",
+      sm: "640px",
+      md: "1024px",
+      lg: "1920px",
+      xl: "3840px",
     },
   },
   plugins: [require("tailwind-scrollbar")],
