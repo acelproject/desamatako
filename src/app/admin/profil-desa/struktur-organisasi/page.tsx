@@ -1,6 +1,6 @@
 
 import Image from "next/image";
-import strukturOrganitation from "../../../../public/assets/img/struktur-organisasi.jpg";
+import strukturOrganitation from "../../../../../public/assets/img/struktur-organisasi.jpg";
 
 export default function StrukturOrgns() {
     return (
