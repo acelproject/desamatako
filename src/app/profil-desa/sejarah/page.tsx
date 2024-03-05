@@ -114,8 +114,8 @@ export default function History() {
                     </tr>
                   </thead>
                   <tbody>
-                    {dataKepalaDesa.map((data) => (
-                      <tr className={`${data.bg} border-b`}>
+                    {dataKepalaDesa.map((data,i) => (
+                      <tr className={`${data.bg} border-b`} key={i}>
                         <td className="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                           {data.nama}
                         </td>

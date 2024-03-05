@@ -1,4 +1,4 @@
-import PagesWrapper from "@/pages/components/layouts/PagesWrapper";
+
 import { FaMapMarkerAlt } from "react-icons/fa";
 import Image from "next/image";
 import mapSketch from "../../../../public/assets/img/map-desa.jpg";
@@ -33,8 +33,9 @@ const dataKepalaDesa = [
 
 export default function History() {
   return (
-    <PagesWrapper pageTitle={`Sejarah`}>
-      <div className="w-full flex px-20 gap-10 mt-4">
+
+      <div>
+        <div className="w-full flex px-20 gap-10 mt-4">
         <div className="w-[70%] ">
           <h1 className="text-2xl font-bold text-gray-700 mb-2">SEJARAH</h1>
           <p className="text-gray-600 text-md text-justify">
@@ -110,8 +111,8 @@ export default function History() {
                   </tr>
                 </thead>
                 <tbody>
-                  {dataKepalaDesa.map((data) => (
-                    <tr className={`${data.bg} border-b`}>
+                  {dataKepalaDesa.map((data,i) => (
+                    <tr className={`${data.bg} border-b`} key={i}>
                       <td className="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                         {data.nama}
                       </td>
@@ -182,6 +183,7 @@ export default function History() {
           11. Organisasi Pemuda Kristen <br />
         </p>
       </div>
-    </PagesWrapper>
+
+      </div>
   );
 }
