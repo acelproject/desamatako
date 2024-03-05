@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Head from "next/head";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import PagesWrapper from "../components/layouts/PagesWrapper";
 
 export default function ProfilDesa() {
   return (
@@ -10,7 +9,6 @@ export default function ProfilDesa() {
         <title>Profil Desa</title>
       </Head> */}
 
-      <PagesWrapper pageTitle={`Profil  Desa`}>
         <div className="w-full flex px-20 gap-10">
           <div className="w-[70%] ">
             <h1 className="text-2xl font-bold text-gray-700 mb-2">SEJARAH</h1>
@@ -29,7 +27,6 @@ export default function ProfilDesa() {
             <br />
           </div>
         </div>
-      </PagesWrapper>
     </>
   );
 }
