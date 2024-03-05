@@ -283,7 +283,7 @@ export default function Navbar() {
               </li>
             </ul>
             {/* menu bars */}
-            <div>
+            <div className="sm:hidden flex">
               <FaBarsStaggered className="text-primary text-lg" />
             </div>
           </div>
@@ -483,6 +483,10 @@ export default function Navbar() {
                 </button>
               </li>
             </ul>
+            {/* menu bars */}
+            <div className="sm:hidden flex">
+              <FaBarsStaggered className="text-primary text-lg" />
+            </div>
           </div>
         </div>
       )}

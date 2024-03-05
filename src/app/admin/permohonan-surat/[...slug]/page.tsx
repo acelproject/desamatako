@@ -35,7 +35,8 @@ export default function AdminDetailPermohonanSurat(props: DetailSuratProps) {
   const { params } = props;
   console.log(params);
   return (
-    <AdminWrapper>
+
+      <>
       <div className="w-full px-7 text-center">
         <h1 className="text-2xl font-semibold text-slate-800">
           Detail Surat Masuk
@@ -70,6 +71,7 @@ export default function AdminDetailPermohonanSurat(props: DetailSuratProps) {
           </div>
         </div>
       </div>
-    </AdminWrapper>
+      </>
+
   );
 }
