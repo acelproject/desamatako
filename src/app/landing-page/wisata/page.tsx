@@ -26,7 +26,7 @@ export default function Wisata() {
       <div className="pb-20 bg-white w-full relative">
         <DetailWisata onDetail={detail} handleClose={()=>handleClose(0)}/>
         <BgTitle text={`objek wisata`}/>
-        <div className="w-7/12 flex mx-auto  justify-center gap-5 xl:pt-24">
+        <div className="w-7/12 flex mx-auto  justify-center gap-5 pt-32">
           <div
             className="w-full wsta-img-lp1 rounded-bl-[30%] rounded-tr-[20%] rounded-br-[20%] flex justify-center items-center  cursor-pointer"
             onMouseEnter={() => handleHover(1)}

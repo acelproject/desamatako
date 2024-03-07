@@ -26,11 +26,22 @@ import { EffectFade, Navigation, Pagination, Autoplay } from "swiper/modules";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import TextHero from "./textHero/TextHero";
+import LinksDetail from "./detail-links/[id]/page";
+import PermohonanSurat from "./permohonan-surat/page";
 
 export default function LandingPage() {
   const [count, setCount] = useState(1);
-
   const [onScroll, setOnScroll] = useState(false);
+
+  const [linksDetail,setLinksDetail] = useState(false)
+  const [paramsLinksDetail,setParamsLinksDetail] = useState(0)
+
+  const handleShowLinksDetail = (id:any)=>{
+     setLinksDetail(true)
+     setParamsLinksDetail(id)
+  }
+
+
   const handleViewLinks = () => {
     if (window.scrollY >= 1) {
       setOnScroll(true);
@@ -60,6 +71,7 @@ export default function LandingPage() {
   return (
     <>
       <div className="w-full h-[100vh] overflow-hidden relative ">
+        <LinksDetail params={paramsLinksDetail} linksDetail={linksDetail} setLinksDetail={setLinksDetail}/>
         <Navbar />
         <div className=" -z-20 w-full top-0 h-full  absolute block banner">
           <Swiper
@@ -98,12 +110,14 @@ export default function LandingPage() {
         </div>
 
         <div className="text-white  w-6/12 m-auto py-10 flex flex-col justify-center items-center text-center">
-          <TextHero/>
+          <TextHero />
         </div>
       </div>
-      <Links />
+      <Links onClick={handleShowLinksDetail} />
 
       <DataPenduduk />
+
+      <PermohonanSurat/>
 
       <History />
 

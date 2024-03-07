@@ -1,12 +1,13 @@
 "use client";
 
 import AppSheel from "@/components/layouts/AppSheel/page";
-import LandingPage from "./LandingPage/page";
+
 import Navbar from "./navbar";
 import Nav from "./navbar";
 import Link from "next/link";
 import { IoIosArrowUp } from "react-icons/io";
 import { useEffect, useState } from "react";
+import LandingPage from "./landing-page/page";
 
 
 

@@ -116,7 +116,7 @@ export default function WritingLetters() {
     <PagesWrapper pageTitle="Pembuatan Surat">
       <div className="w-full">
         <h1
-          className={`text-3xl font-semibold text-center mb-10 md:text-blue-500 xl:text-red-500`}
+          className={`text-3xl font-semibold text-center mb-10 `}
         >
           {" "}
           FORM PERMOHONAN PEMBUATAN SURAT

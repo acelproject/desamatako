@@ -29,7 +29,12 @@ import { useEffect, useState } from "react";
 //   },
 // ];
 
-export default function Links() {
+type LinksProps = {
+ onClick: any;
+};
+
+export default function Links(props:LinksProps) {
+  const{onClick}=props;
   const [onScroll, setOnScroll] = useState(false);
   const handleViewLinks = () => {
     if (window.scrollY >= 1) {
@@ -59,30 +64,18 @@ export default function Links() {
         }}
       >
         <div className="w-1/5 ">
-          <Link href={`https://indonesia.go.id/`} className=" " target="_blank">
+          <div className="" onClick={()=>onClick(1)}>
             <Image
               src={link1}
               alt="Indonesia"
               className="w-16 mx-auto transition-all duration-150 delay-150 hover:-translate-y-2 "
             />
-          </Link>
+          </div>
         </div>
-        <div className="w-1/5 ">
-          <Link
-            href={`https://tojounauna.go.id/`}
-            className=" "
-            target="_blank"
-          >
-            <Image
-              src={link2}
-              alt="Tojo Una-una"
-              className="w-16 mx-auto transition-all duration-150 delay-150 hover:-translate-y-2"
-            />
-          </Link>
-        </div>
+
         <div className="w-1/5">
           <Link
-            href={`https://sultengprov.go.id/ `}
+            href={`/landing-page/detail/links`}
             className=" "
             target="_blank"
           >
@@ -93,15 +86,15 @@ export default function Links() {
             />
           </Link>
         </div>
-        <div className="w-1/5">
+        <div className="w-1/5 ">
           <Link
-            href={`https://www.poldasulteng.com/`}
+            href={`landing-page/links-detail/3`}
             className=" "
             target="_blank"
           >
             <Image
-              src={link4}
-              alt="Polda Sulteng"
+              src={link2}
+              alt="Tojo Una-una"
               className="w-16 mx-auto transition-all duration-150 delay-150 hover:-translate-y-2"
             />
           </Link>

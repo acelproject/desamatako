@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { FaRegEye } from "react-icons/fa";
 import { GoTrash } from "react-icons/go";
+import ShowEntries from "./table/ShowEntries";
 
 const wargas = [
   {
@@ -79,25 +80,6 @@ export default function Table(props: { title: string }) {
             </span>
           </div>
         </div>
-        <div className="flex items-center justify-center w-[60%] gap-2">
-          <div className="flex items-center gap-2">
-            <div className="text-sm italic text-slate-500">Pilih Tanggal</div>
-            <div className="border text-slate-600 text-sm px-2 rounded-md">
-              <input type="date" />
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="text-sm italic text-slate-500">s.d</div>
-            <div className="border text-slate-600 text-sm px-2 rounded-md">
-              <div>
-                <input type="date" />
-              </div>
-            </div>
-          </div>
-          <div className="px-2 font-sm bg-primary rounded-md text-white">
-            Filter
-          </div>
-        </div>
       </div>
       <div className="bg-white px-6 py-6 shadow-lg rounded-sm border-b border-b-slate-200 relative">
         <div className="w-full bg-primary rounded-t-sm">
@@ -108,19 +90,7 @@ export default function Table(props: { title: string }) {
           </h1>
         </div>
         <div className="px-5 pb-5 border border-slate-100">
-          <div className=" py-4 flex justify-between">
-            <div className="flex gap-3">
-              <div>Show</div>
-              <div>10</div>
-              <div>entries</div>
-            </div>
-            <div className="flex gap-2">
-              <div className="text-slate-500">Search :</div>
-              <div>
-                <input type="text" className="border" />
-              </div>
-            </div>
-          </div>
+          <ShowEntries />
 
           <div className="flex flex-col">
             <div className="overflow-x-auto sm:-mx-6 lg:-mx-8 ">

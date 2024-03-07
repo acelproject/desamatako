@@ -31,16 +31,11 @@ let submenus = [
   },
   {
     id: 5,
-    title: "DATA DASAR KELUARGA",
-    href: "/ddk",
-  },
-  {
-    id: 6,
     title: "POTENSI DESA",
     href: "/potensi-desa",
   },
   {
-    id: 7,
+    id: 6,
     title: "TPD",
     href: "/tpd",
   },
@@ -95,14 +90,6 @@ let menus = [
   },
   {
     id: 5,
-    label: "APD",
-    href: "/apd",
-    delayAnimated: 0.4,
-    navType: "apd",
-    display: "hidden",
-  },
-  {
-    id: 6,
     label: "Pembuatan Surat",
     href: "/pembuatan-surat",
     delayAnimated: 0.5,
@@ -231,7 +218,7 @@ export default function Navbar() {
                   {submenus.map((submenu) => (
                     <li
                       key={submenu.id}
-                      className="mb-3 w-[200px] rounded-sm hover:bg-primary transition-all duration-200 delay-150 py-1 px-2 hover:text-white font-normal"
+                      className="mb-3 w-[210px] rounded-sm hover:bg-primary transition-all duration-200 delay-150 py-1 px-2 hover:text-white font-normal"
                     >
                       <Link href={`/profil-desa${submenu.href}`}>
                         {submenu.title}

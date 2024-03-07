@@ -1,31 +1,9 @@
+import getData from "@/services/market/indeks";
 import Image from "next/image";
-
-async function getData() {
-  // API luar
-  const res = await fetch("https://fakestoreapi.com/products", {
-    cache: "no-store",
-  });
-
-  // API Sendiri
-  // const res = await fetch("http://localhost:3000/api/market", {
-  //   cache: "no-store",
-  //   next: {
-  //     // revalidate: 10, //revalidate auto
-
-  //     //revalidate manual
-  //     tags:["market"]
-  //   },
-  // });
-
-  if (!res.ok) {
-    throw new Error("Failed data fetching!");
-  }
-
-  return res.json();
-}
+import Link from "next/link";
 
 export default async function MarketPage() {
-  const products = await getData();
+  const products = await getData("http://localhost:3000/api/market");
   return (
     // api luar
     // <div className=" flex gap-5 bg-primary flex-wrap">
@@ -39,18 +17,21 @@ export default async function MarketPage() {
 
     // api sendiri
     <div className=" flex gap-5 bg-primary flex-wrap w-10/12 justify-center mx-auto">
-      {products.length > 0 &&
-        products.map((product: any) => (
-          <div key={product.id} className="w-1/5">
+      {products.data.length > 0 &&
+        products.data.map((product: any) => (
+          <Link
+            href={`/market/detail/${product.id}`}
+            key={product.id}
+            className="w-1/5"
+          >
             <h1 className="truncate">{product.title}</h1>
             <Image
-              src={product.image}
+              src={product.img}
               alt={product.title}
               width={200}
               height={100}
-              className="w-full"
             />
-          </div>
+          </Link>
         ))}
     </div>
   );
