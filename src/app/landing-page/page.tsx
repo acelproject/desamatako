@@ -9,7 +9,7 @@ import History from "./sejarah/page";
 import DataPenduduk from "./data-penduduk/page";
 import Wisata from "./wisata/page";
 import InfoPembangunan from "./pembangunan/page";
-import Links from "./links/Links";
+import Links from "./links/page";
 import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -26,7 +26,7 @@ import { EffectFade, Navigation, Pagination, Autoplay } from "swiper/modules";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import TextHero from "./textHero/TextHero";
-import LinksDetail from "./links/page";
+import LinksDetail from "./links/detail";
 import PermohonanSurat from "./permohonan-surat/page";
 
 export default function LandingPage() {

@@ -1,80 +1,104 @@
 "use client";
 
-import Image from "next/image";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import React, { MouseEventHandler, useRef } from "react";
 import link1 from "../../../../public/assets/img/garuda.png";
-import link2 from "../../../../public/assets/img/kemendes.png";
-import link3 from "../../../../public/assets/img/kemenparekraf.png";
-type DetailLinksProps = {
-  params?: number;
-  linksDetail?: boolean;
-  setLinksDetail?: any;
-};
-export default function LinksDetail({
-  params,
-  linksDetail,
-  setLinksDetail,
-}: DetailLinksProps) {
-  const overlay = useRef(null);
+import link2 from "../../../../public/assets/img/tojo-una-una.png";
+import link3 from "../../../../public/assets/img/sulteng.png";
 
-  const close: MouseEventHandler = (e) => {
-    if (e.target === overlay.current) {
-      setLinksDetail(!linksDetail);
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
+// const links = [
+//   {
+//     id: 1,
+//     img: "/../../../public/assets/img/garuda.png",
+//   },
+//   {
+//     id: 2,
+//     img: "/../../../public/assets/img/logo.png",
+//   },
+//   {
+//     id: 3,
+//     img: "/../../../public/assets/img/sulteng.png",
+//   },
+//   {
+//     id: 4,
+//     img: "/../../../public/assets/img/polda.png",
+//   },
+// ];
+
+type LinksProps = {
+ onClick: any;
+};
+
+export default function Links(props:LinksProps) {
+  const{onClick}=props;
+  const [onScroll, setOnScroll] = useState(false);
+  const handleViewLinks = () => {
+    if (window.scrollY >= 1) {
+      setOnScroll(true);
+    } else {
+      setOnScroll(false);
     }
   };
-  return (
-    <div
-      ref={overlay}
-      className={`fixed z-[999999] left-0 right-0 top-0 bottom-0 mx-auto bg-black/60 ${
-        linksDetail ? "flex" : "hidden"
-      }`}
-      onClick={close}
-    >
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-white rounded-lg">
-        <div className={`flex gap-10 `}>
-          {params === 1 && (
-            <>
-              <div className="">
-                <Link href={`https://www.indonesia.go.id/`} className="">
-                  <Image
-                    src={link1}
-                    alt="Indonesia"
-                    className="w-16 mx-auto transition-all duration-150 delay-150 hover:-translate-y-2 "
-                  />
-                </Link>
-              </div>
 
-              <div className="">
-                <Link
-                  href={`https://www.kemendesa.go.id/`}
-                  className=" "
-                  target="_blank"
-                >
-                  <Image
-                    src={link2}
-                    alt="Kemendesa"
-                    className="w-16 mx-auto transition-all duration-150 delay-150 hover:-translate-y-2"
-                  />
-                </Link>
-              </div>
-              <div className="">
-                <Link
-                  href={`https://kemenparekraf.go.id/`}
-                  className=" "
-                  target="_blank"
-                >
-                  <Image
-                    src={link3}
-                    alt="Kemenparekraf"
-                    className="w-16 mx-auto transition-all duration-150 delay-150 hover:-translate-y-2"
-                  />
-                </Link>
-              </div>
-            </>
-          )}
+  useEffect(() => {
+    window.addEventListener("scroll", handleViewLinks);
+  });
+  return (
+    <div className="w-full  text-center absolute md:-bottom-[80px] xl:-bottom-[80px]">
+      <motion.div
+        className={`bg-white mx-auto w-9/12 py-12 justify-evenly items-center gap-2 rounded-[40px] shadow-md flex ${
+          onScroll ? "block" : "hidden"
+        }`}
+        initial={{ y: 50 }}
+        whileInView={{ y: 0 }}
+        transition={{
+          delay: 0.1,
+          y: { type: "spring", stiffness: 100 },
+          opacity: { duration: 1 },
+          ease: "easeIn",
+          duration: 1,
+        }}
+      >
+        <div className="w-1/5 ">
+          <div className="" onClick={()=>onClick(1)}>
+            <Image
+              src={link1}
+              alt="Indonesia"
+              className="w-16 mx-auto transition-all duration-150 delay-150 hover:-translate-y-2 "
+            />
+          </div>
         </div>
-      </div>
+
+        <div className="w-1/5">
+          <Link
+            href={`/landing-page/detail/links`}
+            className=" "
+            target="_blank"
+          >
+            <Image
+              src={link3}
+              alt="Sulteng"
+              className="w-16 mx-auto transition-all duration-150 delay-150 hover:-translate-y-2"
+            />
+          </Link>
+        </div>
+        <div className="w-1/5 ">
+          <Link
+            href={`landing-page/links-detail/3`}
+            className=" "
+            target="_blank"
+          >
+            <Image
+              src={link2}
+              alt="Tojo Una-una"
+              className="w-16 mx-auto transition-all duration-150 delay-150 hover:-translate-y-2"
+            />
+          </Link>
+        </div>
+      </motion.div>
     </div>
   );
 }
