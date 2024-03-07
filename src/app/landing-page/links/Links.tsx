@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import link1 from "../../../../../public/assets/img/garuda.png";
-import link2 from "../../../../../public/assets/img/tojo-una-una.png";
-import link3 from "../../../../../public/assets/img/sulteng.png";
+import link1 from "../../../../public/assets/img/garuda.png";
+import link2 from "../../../../public/assets/img/tojo-una-una.png";
+import link3 from "../../../../public/assets/img/sulteng.png";
 import link4 from "../../../../../public/assets/img/polda.png";
 
 import Image from "next/image";
