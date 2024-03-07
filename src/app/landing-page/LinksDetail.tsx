@@ -3,9 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { MouseEventHandler, useRef } from "react";
-import link1 from "../../../../public/assets/img/garuda.png";
-import link2 from "../../../../public/assets/img/kemendes.png";
-import link3 from "../../../../public/assets/img/kemenparekraf.png";
+import link1 from "../../../public/assets/img/garuda.png";
+import link2 from "../../../public/assets/img/kemendes.png";
+import link3 from "../../../public/assets/img/kemenparekraf.png";
 type DetailLinksProps = {
   params?: any;
   linksDetail?: any;
