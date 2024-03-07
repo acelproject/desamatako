@@ -29,7 +29,7 @@ import { useEffect, useState } from "react";
 // ];
 
 type LinksProps = {
- onClick: any;
+ onClick?: any;
 };
 
 export default function Links(props:LinksProps) {
