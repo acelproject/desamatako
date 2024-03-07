@@ -7,8 +7,8 @@ import link1 from "../../../../public/assets/img/garuda.png";
 import link2 from "../../../../public/assets/img/kemendes.png";
 import link3 from "../../../../public/assets/img/kemenparekraf.png";
 type DetailLinksProps = {
-  params?: number;
-  linksDetail?: boolean;
+  params?: any;
+  linksDetail?: any;
   setLinksDetail?: any;
 };
 export default function LinksDetail(props: DetailLinksProps) {
