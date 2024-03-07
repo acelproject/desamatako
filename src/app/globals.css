@@ -143,12 +143,12 @@ body {
 
 .wisata-img::before {
   content: "";
-  @apply absolute block left-0 top-0 w-1/2 bg-primary opacity-50 h-full translate-x-80  md:-translate-x-56 lg:-translate-x-80;
+  @apply absolute block left-0 top-0 w-1/2 bg-primary opacity-50 h-full  -translate-x-80;
   transition: 0.5s;
 }
 .wisata-img::after {
   content: "";
-  @apply absolute block right-0 top-0 w-1/2 bg-primary h-full translate-x-80  md:translate-x-56 lg:translate-x-80;
+  @apply absolute block right-0 top-0 w-1/2 bg-primary h-full translate-x-80;
   transition: 0.5s;
 }
 
