@@ -1,11 +1,11 @@
-import Modal from "@/components/layouts/modals";
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
 import React, { MouseEventHandler, useRef } from "react";
 import link1 from "../../../../../public/assets/img/garuda.png";
 import link2 from "../../../../../public/assets/img/kemendes.png";
 import link3 from "../../../../../public/assets/img/kemenparekraf.png";
-import { useRouter } from "next/navigation";
 type DetailLinksProps = {
   params: number;
   linksDetail: boolean;
@@ -15,7 +15,6 @@ const LinksDetail = (props: DetailLinksProps) => {
   const { params, linksDetail, setLinksDetail } = props;
 
   const overlay = useRef(null);
-  const router = useRouter();
 
   const close: MouseEventHandler = (e) => {
     if (e.target === overlay.current) {
