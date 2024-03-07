@@ -7,9 +7,9 @@ import link1 from "../../../../../public/assets/img/garuda.png";
 import link2 from "../../../../../public/assets/img/kemendes.png";
 import link3 from "../../../../../public/assets/img/kemenparekraf.png";
 type DetailLinksProps = {
-  params: number;
-  linksDetail: boolean;
-  setLinksDetail: any;
+  params?: number;
+  linksDetail?: boolean;
+  setLinksDetail?: any;
 };
 const LinksDetail = (props: DetailLinksProps) => {
   const { params, linksDetail, setLinksDetail } = props;
