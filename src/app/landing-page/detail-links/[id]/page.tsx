@@ -6,16 +6,16 @@ import React, { MouseEventHandler, useRef } from "react";
 import link1 from "../../../../../public/assets/img/garuda.png";
 import link2 from "../../../../../public/assets/img/kemendes.png";
 import link3 from "../../../../../public/assets/img/kemenparekraf.png";
-interface DetailLinksProps {
-  params: number;
-  linksDetail: boolean;
-  setLinksDetail: any;
-}
-const LinksDetail = ({
+type DetailLinksProps = {
+  params?: number;
+  linksDetail?: boolean;
+  setLinksDetail?: any;
+};
+export default function LinksDetail({
   params,
   linksDetail,
   setLinksDetail,
-}: DetailLinksProps) => {
+}: DetailLinksProps) {
   const overlay = useRef(null);
 
   const close: MouseEventHandler = (e) => {
@@ -77,6 +77,4 @@ const LinksDetail = ({
       </div>
     </div>
   );
-};
-
-export default LinksDetail;
+}
