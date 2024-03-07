@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default async function MarketPage() {
-  const products = await getData("http://localhost:3000/api/market");
+  // const products = await getData("http://localhost:3000/api/market");
   return (
     // api luar
     // <div className=" flex gap-5 bg-primary flex-wrap">
@@ -17,7 +17,7 @@ export default async function MarketPage() {
 
     // api sendiri
     <div className=" flex gap-5 bg-primary flex-wrap w-10/12 justify-center mx-auto">
-      {products.data.length > 0 &&
+      {/* {products.data.length > 0 &&
         products.data.map((product: any) => (
           <Link
             href={`/market/detail/${product.id}`}
@@ -32,7 +32,8 @@ export default async function MarketPage() {
               height={100}
             />
           </Link>
-        ))}
+        ))} */}
+        <div>on prosess....</div>
     </div>
   );
 }
