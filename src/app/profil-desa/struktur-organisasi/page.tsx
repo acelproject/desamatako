@@ -1,7 +1,9 @@
+"use client"
 import Image from "next/image";
 import strukturOrganitation from "../../../../public/assets/img/struktur-organisasi.jpg";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import GalleryPerangkatDesa from "@/components/swiper/GalleryPerangkatDesa";
 
 export default function StrukturOrgns() {
   return (
@@ -24,6 +26,9 @@ export default function StrukturOrgns() {
             />
           </div>
         </div>
+      </div>
+      <div className="w-full bg-white pb-20">
+        <GalleryPerangkatDesa/>
       </div>
 
       <Footer />
