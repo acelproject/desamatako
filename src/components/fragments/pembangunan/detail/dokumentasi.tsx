@@ -110,7 +110,7 @@ export default function DokDetailPembangunanComponent(props: DokProps) {
           {progressPage1Img.map((data) => (
             <div
               key={data.id}
-              className="progress-img-wrap w-1/2 h-52 overflow-hidden rounded-md border-4 border-gray-300 group"
+              className="progress-img-wrap w-1/2 lg:h-72 h-52 overflow-hidden rounded-md border-4 border-gray-300 group"
               onMouseEnter={() => setProgressImgHover(!progressImgHover)}
               onMouseLeave={() => setProgressImgHover(!progressImgHover)}
               onClick={() => handleClick(data.id)}

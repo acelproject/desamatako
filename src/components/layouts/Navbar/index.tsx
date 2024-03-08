@@ -295,14 +295,14 @@ export default function Navbar() {
             <div className="-mt-1">
               <h1
                 className={`font-bold text-white transition-all duration-20 delay-100 ${
-                  onScroll ? "text-lg" : " text-3xl "
+                  onScroll ? "md:text-lg text-sm" : " md:text-3xl text-md"
                 }`}
               >
                 Desa Matako
               </h1>
               <p
                 className={`text-gray-200 font-semibold transition-all duration-20 delay-100 ${
-                  onScroll ? "md:text-xs text-[9px]" : "md:text-xs text-[10px]"
+                  onScroll ? "md:text-xs text-[9px]" : "md:text-xs text-[10px] "
                 }`}
               >
                 Kec.Tojo Barat, Kab. Tojo Una-Una
@@ -310,7 +310,7 @@ export default function Navbar() {
             </div>
           </div>
           <div>
-            <ul className="flex gap-8 items-center">
+            <ul className="md:flex hidden gap-8 items-center">
               <div
                 className={` relative flex justify-center h-8 items-center ${
                   pathName === `${`/`}` ? "text-white" : "text-gray-300"

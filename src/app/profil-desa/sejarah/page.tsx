@@ -9,26 +9,31 @@ const dataKepalaDesa = [
   {
     nama: "PEDENGKA",
     masaJabatan: "Tahun 1901-1903",
+    ket: "Kepala Kampung",
     bg: "bg-gray-100",
   },
   {
     nama: "TIMBALINO",
     masaJabatan: "Tahun 1903-1906",
+    ket: "Kepala Kampung",
     bg: "bg-white",
   },
   {
     nama: "PEDENGKA",
     masaJabatan: "Tahun 1906-1909",
+    ket: "Kepala Kampung",
     bg: "bg-gray-100",
   },
   {
     nama: "TIMBALINO",
     masaJabatan: "Tahun 1909-1912",
+    ket: "Kepala Kampung",
     bg: "bg-white",
   },
   {
     nama: "WONCE",
     masaJabatan: "Tahun 1912-1922",
+    ket: "Kepala Kampung",
     bg: "bg-gray-100",
   },
 ];
@@ -112,16 +117,25 @@ export default function History() {
                       >
                         Masa Jabatan
                       </th>
+                      <th
+                        scope="col"
+                        className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                      >
+                        Keterangan
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
-                    {dataKepalaDesa.map((data,i) => (
+                    {dataKepalaDesa.map((data, i) => (
                       <tr className={`${data.bg} border-b`} key={i}>
                         <td className="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                           {data.nama}
                         </td>
                         <td className="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
                           {data.masaJabatan}
+                        </td>
+                        <td className="text-sm text-gray-900 font-normal px-6 py-4 whitespace-nowrap">
+                          {data.ket}
                         </td>
                       </tr>
                     ))}
@@ -168,8 +182,7 @@ export default function History() {
             Sebagian lagi adalah Nelayan, PNS dan Wiraswasta.
           </p>
         </div>
-        <SketsaImg/>
-        <div className="w-full px-20 gap-10 mt-10 ">
+        <div className="w-full px-20 gap-10 mt-5 ">
           <p className="text-gray-600 text-md w-full text-justify">
             Unsur-Unsur Lembaga dan Organisasi yang ada yaitu : <br />
             1. Pemerintah Desa <br />
@@ -185,6 +198,7 @@ export default function History() {
             11. Organisasi Pemuda Kristen <br />
           </p>
         </div>
+        <SketsaImg />
       </div>
       <Footer />
     </>

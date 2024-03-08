@@ -123,7 +123,7 @@ export default function GalleryPerangkatDesa() {
           className="swiper_container"
         >
           {gallPerangkat.map((gal, i) => (
-            <SwiperSlide>
+            <SwiperSlide key={i}>
               <div className="h-auto w-full rounded-lg p-2 bg-gradient-to-b from-primary to-slate-800">
                 <Image
                   src={gal.img}
