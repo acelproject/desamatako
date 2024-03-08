@@ -94,7 +94,7 @@ import Image from "next/image";
 export default function GalleryPerangkatDesa() {
   return (
     <>
-      <div className=" w-full md:px-20 px-8">
+      <div className=" w-full md:px-20 px-12">
         <Swiper
           effect={`coverflow`}
           autoplay={{
