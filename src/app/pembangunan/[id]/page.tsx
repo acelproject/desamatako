@@ -70,19 +70,19 @@ export default function DetailPembangunanPage(props: DetailPembangunanProps) {
                 <Image
                   src={jembatanBuild}
                   alt="Pembangunan Jembatan"
-                  className="lg:h-[500px]"
+                  className="lg:h-[700px] md:h-[500px]"
                 />
               ) : params.id === "2" ? (
                 <Image
                   src={jembatanBuild2}
                   alt="Pembangunan Jembatan"
-                  className="lg:h-[500px]"
+                  className="lg:h-[700px] md:h-[500px]"
                 />
               ) : params.id === "3" ? (
                 <Image
                   src={jembatanBuild}
                   alt="Pembangunan Jembatan"
-                  className="lg:h-[500px]"
+                  className="lg:h-[700px] md:h-[500px]"
                 />
               ) : (
                 <div>--ksosng--</div>

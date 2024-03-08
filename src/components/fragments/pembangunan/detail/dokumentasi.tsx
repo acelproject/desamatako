@@ -118,7 +118,7 @@ export default function DokDetailPembangunanComponent(props: DokProps) {
               <div className="progress-img  relative flex">
                 <Image src={data.img} alt="Wisata Ilustration" className="" />
                 <div
-                  className={`absolute lg:bottom-32 md:bottom-32 bottom-20 left-0 z-40 font-medium w-full text-center transition-transform ease-in-out duration-200 delay-150 text-white translate-y-0 group-hover:-translate-y-20`}
+                  className={`absolute lg:bottom-32 md:bottom-20 bottom-20 left-0 z-40 font-medium w-full text-center transition-transform ease-in-out duration-200 delay-150 text-white translate-y-0 group-hover:-translate-y-20`}
                 >
                   {data.progress}
                 </div>
