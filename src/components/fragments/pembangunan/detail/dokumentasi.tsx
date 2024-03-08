@@ -110,7 +110,7 @@ export default function DokDetailPembangunanComponent(props: DokProps) {
           {progressPage1Img.map((data) => (
             <div
               key={data.id}
-              className="progress-img-wrap w-1/2 lg:h-72 h-52 overflow-hidden rounded-md border-4 border-gray-300 group"
+              className="progress-img-wrap w-1/2 lg:h-80 h-52 overflow-hidden rounded-md border-4 border-gray-300 group"
               onMouseEnter={() => setProgressImgHover(!progressImgHover)}
               onMouseLeave={() => setProgressImgHover(!progressImgHover)}
               onClick={() => handleClick(data.id)}
@@ -118,7 +118,7 @@ export default function DokDetailPembangunanComponent(props: DokProps) {
               <div className="progress-img  relative flex">
                 <Image src={data.img} alt="Wisata Ilustration" className="" />
                 <div
-                  className={`absolute bottom-20 left-0 z-40 font-medium w-full text-center transition-transform ease-in-out duration-200 delay-150 text-white translate-y-0 group-hover:-translate-y-20`}
+                  className={`absolute lg:bottom-32 bottom-20 left-0 z-40 font-medium w-full text-center transition-transform ease-in-out duration-200 delay-150 text-white translate-y-0 group-hover:-translate-y-20`}
                 >
                   {data.progress}
                 </div>

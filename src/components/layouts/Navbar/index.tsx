@@ -277,19 +277,19 @@ export default function Navbar() {
         </div>
       ) : (
         <div
-          className={`w-full fixed top-0 bg-[#343a40] h-auto items-center flex justify-between px-20 z-50`}
+          className={`w-full fixed top-0 transition-all duration-20 delay-100 bg-[#343a40]  h-auto items-center flex md:justify-between justify-evenly md:px-20 z-50`}
         >
           <div className=" py-3 flex gap-3 items-center ">
             <div
               className={`transition-all duration-20 delay-100 ${
-                onScroll ? "w-8" : "w-14"
+                onScroll ? "w-8" : "md:w-14 w-10"
               }`}
             >
               <Image src={logo} alt="Logo Desa Matako" />
             </div>
             <div
               className={`w-[1px] bg-white transition-all duration-20 delay-100 ${
-                onScroll ? "h-8" : " h-14"
+                onScroll ? "h-8" : " md:h-14 h-10"
               }`}
             ></div>
             <div className="-mt-1">
