@@ -1,4 +1,4 @@
-// import getData from "@/services/market/indeks";
+
 import Image from "next/image";
 
 type DetailMarketProps = {
