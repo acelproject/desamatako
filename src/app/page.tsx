@@ -1,40 +1,26 @@
-"use client";
+import React from "react";
+import AppWrapper from "./AppWrapper";
+import { Metadata } from "next";
 
-import Navbar from "./navbar";
-import Nav from "./navbar";
-import Link from "next/link";
-import { IoIosArrowUp } from "react-icons/io";
-import { useEffect, useState } from "react";
-import LandingPage from "./landing-page/page";
+export const metadata: Metadata = {
+  title: "Landing Page Desa Matako",
+  description:
+    "Website Pemerintah Desa Matako, Kabupaten Tojo una-una, Kecamatan Tojo Barat.",
+  authors: [{ name: "Pemerintah Desa Matako", url: "http://localhost:3000/" }],
+  icons: {
+    icon: "/logo.png",
+  },
+  openGraph: {
+    title: "Landing Page Desa Matako",
+  },
+};
 
-export default function Home() {
-  const [onScroll, setOnScroll] = useState(false);
-
-  const toTop = () => {
-    if (window.scrollY >= 1) {
-      setOnScroll(true);
-    } else {
-      setOnScroll(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", toTop);
-  });
-
+const page = () => {
   return (
-    <div>
-      <LandingPage />
-      <div>
-        <Link
-          href="#top"
-          className={`p-3 bg-primary rounded-full fixed m-5 bottom-0 right-0 z-[999] text-white shadow-md transition-all duration-150 delay-150 ${
-            onScroll ? "scale-100" : "scale-0"
-          }`}
-        >
-          <IoIosArrowUp />
-        </Link>
-      </div>
-    </div>
+    <>
+      <AppWrapper />
+    </>
   );
-}
+};
+
+export default page;

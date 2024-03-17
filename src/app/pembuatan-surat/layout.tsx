@@ -1,7 +1,13 @@
 import Footer from "@/components/layouts/Footer";
 import Navbar from "@/components/layouts/Navbar";
-import Head from "next/head";
+import { Metadata } from "next";
 import React from "react";
+
+
+export const metadata: Metadata = {
+  title: "Pembuatan Surat",
+  description: "Pembuatan Permohonan Surat",
+};
 
 export default function PermohonanSuratPageLayout({
   children,
@@ -10,9 +16,6 @@ export default function PermohonanSuratPageLayout({
 }) {
   return (
     <>
-      {/* <Head>
-        <title>Landing Page</title>
-      </Head> */}
 
       <div>
         <Navbar />

@@ -172,7 +172,7 @@ body {
 .progress-img::after {
   content: "";
   transition: 0.5s;
-  @apply absolute block left-0 translate-y-20 bg-gradient-to-t from-black via-black to-transparent  z-20 w-full h-full;
+  @apply absolute block left-0 lg:-translate-y-20 md:translate-y-24 translate-y-20 bg-gradient-to-t from-black lg:via-transparent md:via-black to-transparent  z-20 w-full h-full;
 }
 
 .progress-img-wrap:hover .progress-img::after {

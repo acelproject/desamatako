@@ -12,7 +12,6 @@ import arter3 from "../../../../public/assets/img/arter3.jpg";
 import goa1 from "../../../../public/assets/img/goa1.jpg";
 import goa2 from "../../../../public/assets/img/goa2.jpg";
 import goa3 from "../../../../public/assets/img/goa3.jpg";
-import { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation} from "swiper/modules";

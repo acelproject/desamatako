@@ -22,6 +22,15 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/layouts/DisplayNavFooter", "src/app/admin/data-penduduk/[...anggotaKeluarga]"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/components/layouts/DisplayNavFooter",
+    "src/app/admin/data-penduduk/[...anggotaKeluarga]",
+    "src/__test__/app/objek-wisata.spec.tsx",
+    "jest.config.ts"
+  ],
   "exclude": ["node_modules"]
 }

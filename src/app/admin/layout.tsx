@@ -16,6 +16,7 @@ import NavbarAdmin from "./navbar/page";
 
 import Link from "next/link";
 import Script from "next/script";
+import { signOut } from "next-auth/react";
 
 const menus = [
   {
@@ -89,15 +90,9 @@ const menus = [
     arrow: false,
     icon: <FaUser />,
   },
-  {
-    id: 11,
-    title: "Logout",
-    arrow: false,
-    icon: <MdLogout />,
-  },
 ];
 
-export default function Layout({ children}: {children:React.ReactNode}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   // const [menuComponent, setMenuComponent] = useState(1);
   // console.log(menuComponent);
 
@@ -138,6 +133,17 @@ export default function Layout({ children}: {children:React.ReactNode}) {
                   <ListMenu menu={menu} />
                 </div>
               ))}
+              <div
+                className="flex text-gray-300 hover:text-white items-center justify-between gap-2 px-4 py-2 transition-all duration-150 hover:bg-slate-700 rounded-sm"
+                onClick={() => signOut()}
+              >
+                <div className="flex  gap-2 ">
+                  <span className="text-xl">
+                    <MdLogout />
+                  </span>
+                  <span className="font-medium text-md">Logout</span>
+                </div>
+              </div>
             </ul>
           </div>
         </div>

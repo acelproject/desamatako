@@ -8,7 +8,7 @@ const Modal = ({ children }: { children: React.ReactNode }) => {
 
   const close: MouseEventHandler = (e) => {
     if (e.target === overlay.current) {
-      router.push("/");
+      router.back();
     }
   };
 

@@ -4,17 +4,28 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "../../../../public/assets/img/logo.png";
 import React from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  const handleLogin = (e: any) => {
+  const {push}=useRouter()
+  const handleLogin = async (e: any) => {
     e.preventDefault();
-    fetch("/api/auth/login", {
-      method: "POST",
-      body: JSON.stringify({
-        username: e.currentTarget.username.value,
-        password: e.currentTarget.password.value,
-      }),
-    });
+    try {
+      const res = await signIn("credentials", {
+        redirect: false,
+        username: e.target.username.value,
+        password: e.target.password.value,
+        callbackUrl: "/admin",
+      });
+      if (!res?.error) {
+        push("/admin")
+      }else{
+        console.log(res.error)
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <>
@@ -51,7 +62,7 @@ export default function LoginPage() {
               >
                 <div>
                   <label
-                    htmlFor="email"
+                    htmlFor="username"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     Username

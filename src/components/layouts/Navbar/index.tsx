@@ -7,6 +7,7 @@ import { useParams, usePathname, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import logo from "../../../../public/assets/img/logo.png";
 import { FaBarsStaggered } from "react-icons/fa6";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 let submenus = [
   {
@@ -136,6 +137,8 @@ export default function Navbar() {
     setOnHover(!onHover);
     setSubMenu(false);
   };
+
+  const { status }:{status:string} = useSession();
   return (
     <div>
       {pathName === "/" ? (
@@ -261,12 +264,21 @@ export default function Navbar() {
                 </div>
               ))}
               <li className="text-white">
-                <button
-                  onClick={() => route.push("/login")}
+                {status === "authenticated" ? (
+                  <button
+                  onClick={() => signOut()}
+                  className="bg-primary px-5 font-medium py-2 rounded-full uppercase"
+                >
+                  Logout
+                </button>
+                ):(
+                  <button
+                  onClick={() => signIn()}
                   className="bg-primary px-5 font-medium py-2 rounded-full uppercase"
                 >
                   Login
                 </button>
+                )}
               </li>
             </ul>
             {/* menu bars */}

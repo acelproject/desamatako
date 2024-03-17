@@ -1,17 +1,15 @@
-async function getData(url:string) {
+async function getData(url: string) {
   // API luar
-  const res = await fetch(url, {
-    cache: "no-store",
-  });
+  const res = await fetch(url, {});
 
-  // API Sendiri
+  // // API Sendiri
   // const res = await fetch("http://localhost:3000/api/market", {
   //   cache: "no-store",
   //   next: {
   //     // revalidate: 10, //revalidate auto
 
   //     //revalidate manual
-  //     tags:["market"]
+  //     tags: ["market"],
   //   },
   // });
 
