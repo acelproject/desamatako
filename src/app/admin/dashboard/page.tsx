@@ -40,22 +40,22 @@ const DashboardAdmin = () => {
       <div className="w-full px-7">
         <h1 className="text-3xl font-semibold ">Dashboard</h1>
       </div>
-      {/* <div className="w-3/12 px-7 mt-3">
-          <div
-            className={`p-2 mb-1 rounded-md ${
-              showRivalidate ? "flex" : "hidden"
-            } ${statusRevalidateBg ? "bg-green-400" : "bg-red-400"}`}
-          >
-            {statusRevalidate}
-          </div>
+        <div className="w-3/12 px-7 mt-3">
+            <div
+              className={`p-2 mb-1 rounded-md ${
+                showRivalidate ? "flex" : "hidden"
+              } ${statusRevalidateBg ? "bg-green-400" : "bg-red-400"}`}
+            >
+              {statusRevalidate}
+            </div>
 
-          <button
-            onClick={() => revalidate()}
-            className="px-4 py-1 rounded-md bg-primary text-white"
-          >
-            Revalidate
-          </button>
-        </div> */}
+            <button
+              onClick={() => revalidate()}
+              className="px-4 py-1 rounded-md bg-primary text-white"
+            >
+              Revalidate
+            </button>
+          </div>
       <div className="w-full ">
         <div className="flex gap-7 p-6">
           <div className="w-1/4 h-40 p-5 bg-white shadow-lg rounded-sm border border-slate-200 relative overflow-hidden">

@@ -3,14 +3,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../../../public/assets/img/logo.png";
-import React from "react";
+import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  const {push}=useRouter()
+  const [loading, setLoading] = useState(false);
+  const { push } = useRouter();
   const handleLogin = async (e: any) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const res = await signIn("credentials", {
         redirect: false,
@@ -19,9 +21,11 @@ export default function LoginPage() {
         callbackUrl: "/admin",
       });
       if (!res?.error) {
-        push("/admin")
-      }else{
-        console.log(res.error)
+        push("/admin");
+        setLoading(false);
+      } else {
+        setLoading(false);
+        console.log(res.error);
       }
     } catch (err) {
       console.log(err);
@@ -97,7 +101,14 @@ export default function LoginPage() {
                   type="submit"
                   className="w-full text-white bg-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                 >
-                  Login Admin
+                  {loading ? (
+                    <div className="flex gap-2 items-center justify-center">
+                      <div className="animate-spin h-5 w-5 bg-transparent border-[4px] rounded-full border-slate-400 border-l-slate-100"></div>
+                      <div>Loading...</div>
+                    </div>
+                  ) : (
+                    <div>Login admin</div>
+                  )}
                 </button>
               </form>
             </div>
