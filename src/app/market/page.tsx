@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
+
 // async function getData() {
 //   const res = await fetch("http://localhost:3000/api/products", {
 //     cache: "no-store",
@@ -18,27 +19,24 @@ import useSWR from "swr";
 //   return res.json();
 // }
 
-const fetcher = (url: string) =>
-  fetch(url, { cache: "no-store" }).then((res) => {
-    return res.json();
-  });
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function MarketPage() {
-  // const products = await getData();
-  const { data, error, isLoading } = useSWR(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/products`,
-    fetcher
-  );
+  // const [products, setProducts] = useState([]);
 
+  const { data, error } = useSWR(`${process.env.NEXT_PUBLIC_API_URL}/api/products`, fetcher);
+  
   const products = {
-    data: data.data,
+    data: data?.data,
   };
+
+
 
   return (
     // api sendiri
     <div className=" flex gap-5 bg-white flex-wrap w-10/12 justify-center mx-auto">
-      {products.data.length > 0 &&
-        products.data.map((product: any, i: any) => (
+      {products.data?.length &&
+        products.data?.map((product: any, i: any) => (
           <Link href={`market/detail/${product.id}`} key={i}>
             <Image src={product.img} alt="" width={300} height={200} priority />
             <div>nama: {product.nama}</div>
