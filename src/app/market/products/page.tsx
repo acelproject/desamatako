@@ -9,7 +9,7 @@ const fetcher = (url: string) =>
   fetch(url).then((res) => {
     return res.json();
   });
-export default function page() {
+export default function Page() {
   const { data, error, isLoading } = useSWR(
     `${process.env.NEXT_PUBLIC_API_URL}/api/products`,
     fetcher
