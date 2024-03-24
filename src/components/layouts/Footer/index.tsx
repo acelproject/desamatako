@@ -83,7 +83,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="flex w-full gap-5 mx-auto font-normal text-gray-300 pb-5 justify-center border-t-[1px] border-t-gray-400">
-        <p className="mt-4">Copyright © 2024 Hoei Tech.</p>
+        <p className="mt-4">Copyright © 2024 acelweDev.</p>
       </div>
     </div>
   );
