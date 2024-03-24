@@ -16,7 +16,7 @@ export default function PermohonanSurat() {
           </div>
           <Link
             href={`/pembuatan-surat`}
-            className=" bg-primary hover:bg-[#3b8b9b] transition-all flex items-center gap-2 text-white w-max py-3 px-5 mt-3 rounded-md"
+            className=" bg-primary hover:bg-[#3b8b9b] rounded-full transition-all flex items-center gap-2 text-white w-max py-3 px-5 mt-3"
           >
             Kirim permohonan
             <TbSend className="text-lg" />

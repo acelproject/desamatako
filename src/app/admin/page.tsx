@@ -1,13 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import { MdCategory, MdLogout, MdOutlineWidgets } from "react-icons/md";
-import { GrNotes } from "react-icons/gr";
-import { FaPeopleRoof } from "react-icons/fa6";
-import { AiFillProfile } from "react-icons/ai";
-import { FaRegBuilding, FaUser } from "react-icons/fa";
-import { FaMountainSun } from "react-icons/fa6";
-import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import { useEffect, useState } from "react";
 import {
   MdOutlineMarkEmailUnread,

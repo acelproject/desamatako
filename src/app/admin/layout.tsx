@@ -192,9 +192,11 @@ const ListMenu = ({ menu }: any) => {
             dropDownActive ? "flex" : "hidden"
           }`}
         >
-          <li className="hover:text-white text-gray-300 cursor-pointer">
-            Sejarah
-          </li>
+          <Link href={`/admin/profil-desa/sejarah`}>
+            <li className="hover:text-white text-gray-300 cursor-pointer">
+              Sejarah
+            </li>
+          </Link>
           <li className="hover:text-white text-gray-300 cursor-pointer">
             Visi & Misi
           </li>

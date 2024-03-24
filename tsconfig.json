@@ -31,6 +31,6 @@
     "src/app/admin/data-penduduk/[...anggotaKeluarga]",
     "src/__test__/app/objek-wisata.spec.tsx",
     "jest.config.ts"
-  ],
+, "src/components/TextEditor.jsx"  ],
   "exclude": ["node_modules"]
 }
