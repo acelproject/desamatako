@@ -33,14 +33,13 @@ export default function LandingPage() {
   const [count, setCount] = useState(1);
   const [onScroll, setOnScroll] = useState(false);
 
-  const [linksDetail,setLinksDetail] = useState(false)
-  const [paramsLinksDetail,setParamsLinksDetail] = useState(0)
+  const [linksDetail, setLinksDetail] = useState(false);
+  const [paramsLinksDetail, setParamsLinksDetail] = useState(0);
 
-  const handleShowLinksDetail = (id:any)=>{
-     setLinksDetail(true)
-     setParamsLinksDetail(id)
-  }
-
+  const handleShowLinksDetail = (id: any) => {
+    setLinksDetail(true);
+    setParamsLinksDetail(id);
+  };
 
   const handleViewLinks = () => {
     if (window.scrollY >= 1) {
@@ -71,7 +70,11 @@ export default function LandingPage() {
   return (
     <>
       <div className="w-full h-[100vh] overflow-hidden relative ">
-        <LinksDetail params={paramsLinksDetail} linksDetail={linksDetail} setLinksDetail={setLinksDetail}/>
+        <LinksDetail
+          params={paramsLinksDetail}
+          linksDetail={linksDetail}
+          setLinksDetail={setLinksDetail}
+        />
         <Navbar />
         <div className=" -z-20 w-full top-0 h-full  absolute block banner">
           <Swiper
@@ -117,7 +120,7 @@ export default function LandingPage() {
 
       <DataPenduduk />
 
-      <PermohonanSurat/>
+      <PermohonanSurat />
 
       <History />
 
@@ -126,39 +129,6 @@ export default function LandingPage() {
       <InfoPembangunan />
 
       <Footer />
-      {/* Link Surat */}
-      {/* <div
-        className={`  fixed  xl:bottom-[50%]  bottom-[30%]  left-0 w-32 z-[200] ${
-          pathName !== "/" ? "hidden" : "block"
-        }`}
-      >
-        <div className="relative flex items-center ">
-          <div
-            className={`pop-up-surat relative bg-primary p-3 rounded-e-md ${
-              onScroll ? "scale-1" : "scale-1"
-            } `}
-          >
-            <p className="text-sm font-medium text-white mb-3">
-              Ingin Membuat Permohonan Surat ?
-            </p>
-            <Link href={`/pembuatan-surat`} className=" ">
-              <TbSend className="text-2xl text-white" />
-            </Link>
-          </div>
-          <div
-            className={`absolute right-[-60px] z-30 w-8/12 img-pop-up-surat  ${
-              onScroll ? "translate-x-0" : "-translate-x-60"
-            }`}
-          >
-            <Image
-              src={strukturOrganitation}
-              alt="Map Desa"
-              className="w-full"
-            />
-          </div>
-        </div>
-      </div> */}
-      {/* End Link Surat */}
     </>
   );
 }

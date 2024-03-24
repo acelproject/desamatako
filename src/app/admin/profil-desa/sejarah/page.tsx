@@ -1,7 +1,10 @@
 import { FaMapMarkerAlt } from "react-icons/fa";
 import Image from "next/image";
 import mapSketch from "../../../../../public/assets/img/map-desa.jpg";
-import TextEditor from "@/components/TextEditor";
+import dynamic from "next/dynamic";
+const TextEditor = dynamic(() => import("@/components/TextEditor"), {
+  ssr: false,
+});
 
 const dataKepalaDesa = [
   {
