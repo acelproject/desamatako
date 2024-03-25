@@ -13,7 +13,7 @@ export default function DataPendudukAdmin() {
         <h1 className="text-2xl font-semibold">User</h1>
       </div>
       <div className="w-ful mx-6 mt-2">
-        <TableWrapper tableTitle="Table user">
+        <TableWrapper tableTitle="Table user" href="/admin/user/tambah-data">
           <TableThead>
             <TableTh>No</TableTh>
             <TableTh>nama Wisata</TableTh>

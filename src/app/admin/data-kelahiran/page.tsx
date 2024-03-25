@@ -14,7 +14,7 @@ export default function DataKelahiranAdmin() {
           <h1 className="text-2xl font-semibold">Data Kelahiran</h1>
         </div>
         <div className="w-ful mx-6 mt-2">
-          <TableWrapper tableTitle="Table Data Kelahiran" >
+          <TableWrapper tableTitle="Table Data Kelahiran" href="/admin/data-kelahiran/tambah-data">
             <TableThead>
               <TableTh>No</TableTh>
               <TableTh>nama Ayah</TableTh>

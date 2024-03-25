@@ -13,7 +13,7 @@ export default function DataKematianAdmin() {
           <h1 className="text-2xl font-semibold">Data Kematian</h1>
         </div>
         <div className="w-12/12 mx-6 mt-2">
-          <TableWrapper tableTitle="Table Data Kematian" >
+          <TableWrapper tableTitle="Table Data Kematian" href="/admin/data-kematian/tambah-data">
           <TableThead>
               <TableTh>No</TableTh>
               <TableTh>nama</TableTh>

@@ -11,8 +11,9 @@ import ShowEntries from "./ShowEntries";
 export default function TableWrapper(props: {
   children: any;
   tableTitle: string;
+  href:string;
 }) {
-  const { children, tableTitle } = props;
+  const { children, tableTitle ,href} = props;
 
   const pathname = usePathname();
 
@@ -44,12 +45,12 @@ export default function TableWrapper(props: {
       >
         <h1 className="text-xl font-semibold text-white py-3 ">{tableTitle}</h1>
 
-        <div className="flex items-center gap-1 hover:bg-white transition-all hover:text-primary py-1 px-2 text-sm text-white cursor-pointer rounded-md border  border-white">
+        <Link href={href} className="flex items-center gap-1 hover:bg-white transition-all hover:text-primary py-1 px-2 text-sm text-white cursor-pointer rounded-md border  border-white">
           <div className="font-bold">
             <FaPlus />
           </div>
           <div>Tambah data</div>
-        </div>
+        </Link>
       </div>
 
       <div

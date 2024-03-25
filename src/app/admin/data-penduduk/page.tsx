@@ -56,7 +56,7 @@ export default function DataPendudukAdmin() {
         <h1 className="text-2xl font-semibold">Data Dasar Keluarga</h1>
       </div>
       <div className="w-ful mx-6 mt-2">
-        <TableWrapper tableTitle="Table data dasar keluarga">
+        <TableWrapper tableTitle="Table Data Dasar Keluarga" href="/admin/data-penduduk/tambah-data">
           <TableThead>
             <TableTh>No</TableTh>
             <TableTh>AK</TableTh>
@@ -102,6 +102,7 @@ export default function DataPendudukAdmin() {
                   <BsDatabaseFillCheck />
                 </Link>
               </TableTd>
+              <TableTd>{data.idKel}</TableTd>
               <TableTd>{data.kepalaKeluarga}</TableTd>
               <TableTd>{data.alamat}</TableTd>
               <TableTd>{data.rw}</TableTd>
@@ -113,19 +114,6 @@ export default function DataPendudukAdmin() {
               <TableTd>{data.pekerjaan}</TableTd>
               <TableTd>{data.jabatan}</TableTd>
               <TableTd>{data.sumberData}</TableTd>
-              <TableTd>
-                <div className="flex gap-2 text-slate-600 text-md">
-                  <div className="hover:text-primary transition-all text-blue-500">
-                    <FaRegEye />
-                  </div>
-                  <div className="hover:text-primary transition-all text-yellow-600">
-                    <FaRegEdit />
-                  </div>
-                  <div className="hover:text-primary transition-all text-red-600">
-                    <GoTrash />
-                  </div>
-                </div>
-              </TableTd>
             </TableTbody>
           ))}
         </TableWrapper>

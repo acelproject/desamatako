@@ -35,7 +35,7 @@ const menus = [
   },
   {
     id: 3,
-    title: "Data Penduduk",
+    title: "Data Dasar Keluarga",
     arrow: false,
     href: "/admin/data-penduduk",
     icon: <FaPeopleRoof />,

@@ -15,7 +15,7 @@ export default function PembangunanAdmin() {
           <h1 className="text-2xl font-semibold">Pembangunan</h1>
         </div>
         <div className="w-ful mx-6 mt-2">
-          <TableWrapper tableTitle="Table Data Pembangunan" >
+          <TableWrapper tableTitle="Table Data Pembangunan" href="/admin/pembangunan/tambah-data">
             <TableThead>
               <TableTh>No</TableTh>
               <TableTh>pembangunan</TableTh>
