@@ -209,9 +209,6 @@ const ListMenu = ({ menu }: any) => {
             RPJM Desa
           </li>
           <li className="hover:text-white text-gray-300 cursor-pointer">
-            Data Dasar Keluarga
-          </li>
-          <li className="hover:text-white text-gray-300 cursor-pointer">
             Potensi Desa
           </li>
           <li className="hover:text-white text-gray-300 cursor-pointer">

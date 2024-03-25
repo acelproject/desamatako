@@ -4,33 +4,48 @@ import TableTbody from "@/components/elements/table/TableTbody";
 import TableTh from "@/components/elements/table/TableTh";
 import TableTd from "@/components/elements/table/TableTd";
 import { FaRegEye, FaRegEdit } from "react-icons/fa";
+import { HiMiniUsers } from "react-icons/hi2";
+import { BsDatabaseFillCheck } from "react-icons/bs";
+import { FaPencil } from "react-icons/fa6";
 import { GoTrash } from "react-icons/go";
 import Link from "next/link";
 
 const dataPenduduk = [
   {
     id: 1,
-    idKel:"lumimpah123",
-    nama: "Yohanes Marchel",
-    nik: "720118054100001",
-    tempat: "Dusun 8",
-    ttl: "Palu,11 maret 2000",
-    umur: 16,
-    kelamin: "laki-laki",
+    // ak: "kosong",
+    // kk: "kosong",
+    // ddk: "kosong",
+    idKel: "lumimpah123",
+    kepalaKeluarga: "Yohanes Marchel",
+    alamat: "kosong",
+    rw: "kosong",
+    rt: "kosong",
+    dusun: "Dusun 8",
+    bulan: "maret",
+    tahun: "2024",
+    pengisi: "ksong",
     pekerjaan: "petani",
-    keterangan: "kosong",
+    jabatan: "kosong",
+    sumberData: "kosong",
   },
   {
     id: 2,
-    idKel:"suge321",
-    nama: "Andreas Suge",
-    nik: "720118054100002",
-    tempat: "Dusun 5",
-    ttl: "Palu,11 maret 1996",
-    umur: 16,
-    kelamin: "laki-laki",
+    // ak: "kosong",
+    // kk: "kosong",
+    // ddk: "kosong",
+    idKel: "suge55",
+    kepalaKeluarga: "Andreas Suge",
+    alamat: "kosong",
+    rw: "kosong",
+    rt: "kosong",
+    dusun: "Dusun 8",
+    bulan: "maret",
+    tahun: "2024",
+    pengisi: "ksong",
     pekerjaan: "petani",
-    keterangan: "kosong",
+    jabatan: "kosong",
+    sumberData: "kosong",
   },
 ];
 
@@ -38,39 +53,66 @@ export default function DataPendudukAdmin() {
   return (
     <>
       <div className="w-full px-7 mb-6">
-        <h1 className="text-2xl font-semibold">Data Penduduk</h1>
+        <h1 className="text-2xl font-semibold">Data Dasar Keluarga</h1>
       </div>
       <div className="w-ful mx-6 mt-2">
-        <TableWrapper tableTitle="Table Data Penduduk">
+        <TableWrapper tableTitle="Table data dasar keluarga">
           <TableThead>
             <TableTh>No</TableTh>
             <TableTh>AK</TableTh>
-            <TableTh>nama</TableTh>
-            <TableTh>nik</TableTh>
-            <TableTh>tempat</TableTh>
-            <TableTh>tanggal lahir</TableTh>
-            <TableTh>umur</TableTh>
-            <TableTh>Jenis Kelamin</TableTh>
+            <TableTh>kk</TableTh>
+            <TableTh>ddk</TableTh>
+            <TableTh>kode keluarga</TableTh>
+            <TableTh>nama kepala keluarga</TableTh>
+            <TableTh>alamat</TableTh>
+            <TableTh>rw</TableTh>
+            <TableTh>rt</TableTh>
+            <TableTh>dusun</TableTh>
+            <TableTh>bulan</TableTh>
+            <TableTh>tahun</TableTh>
+            <TableTh>nama pengisi</TableTh>
             <TableTh>pekerjaan</TableTh>
-            <TableTh>Keterangan</TableTh>
-            <TableTh>Aksi</TableTh>
+            <TableTh>jabatan</TableTh>
+            <TableTh>sumber data</TableTh>
           </TableThead>
           {dataPenduduk.map((data, i) => (
             <TableTbody key={i}>
               <TableTd>{data.id}</TableTd>
               <TableTd>
-                <Link href={`/admin/data-penduduk/${i}/${data.idKel}`} className="bg-primary text-white">
-                  edit data keluarga
+                <Link
+                  href={`/admin/data-penduduk/${i}/${data.idKel}`}
+                  className="text-xl text-green-600 "
+                >
+                  <HiMiniUsers />
                 </Link>
               </TableTd>
-              <TableTd>{data.nama}</TableTd>
-              <TableTd>{data.nik}</TableTd>
-              <TableTd>{data.tempat}</TableTd>
-              <TableTd>{data.ttl}</TableTd>
-              <TableTd>{data.umur}</TableTd>
-              <TableTd>{data.kelamin}</TableTd>
+              <TableTd>
+                <Link
+                  href={`/admin/data-penduduk/${i}/${data.idKel}`}
+                  className="text-xl text-yellow-500 "
+                >
+                  <FaPencil />
+                </Link>
+              </TableTd>
+              <TableTd>
+                <Link
+                  href={`/admin/data-penduduk/${i}/${data.idKel}`}
+                  className="text-xl text-blue-600"
+                >
+                  <BsDatabaseFillCheck />
+                </Link>
+              </TableTd>
+              <TableTd>{data.kepalaKeluarga}</TableTd>
+              <TableTd>{data.alamat}</TableTd>
+              <TableTd>{data.rw}</TableTd>
+              <TableTd>{data.rt}</TableTd>
+              <TableTd>{data.dusun}</TableTd>
+              <TableTd>{data.bulan}</TableTd>
+              <TableTd>{data.tahun}</TableTd>
+              <TableTd>{data.pengisi}</TableTd>
               <TableTd>{data.pekerjaan}</TableTd>
-              <TableTd>{data.keterangan}</TableTd>
+              <TableTd>{data.jabatan}</TableTd>
+              <TableTd>{data.sumberData}</TableTd>
               <TableTd>
                 <div className="flex gap-2 text-slate-600 text-md">
                   <div className="hover:text-primary transition-all text-blue-500">

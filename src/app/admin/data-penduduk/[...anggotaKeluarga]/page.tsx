@@ -2,27 +2,39 @@ import React from "react";
 const dataPenduduk = [
   {
     id: 1,
+    // ak: "kosong",
+    // kk: "kosong",
+    // ddk: "kosong",
     idKel: "lumimpah123",
-    nama: "Yohanes Marchel",
-    nik: "720118054100001",
-    tempat: "Dusun 8",
-    ttl: "Palu,11 maret 2000",
-    umur: 16,
-    kelamin: "laki-laki",
+    kepalaKeluarga: "Yohanes Marchel",
+    alamat: "kosong",
+    rw: "kosong",
+    rt: "kosong",
+    dusun: "Dusun 8",
+    bulan: "maret",
+    tahun: "2024",
+    pengisi: "ksong",
     pekerjaan: "petani",
-    keterangan: "kosong",
+    jabatan: "kosong",
+    sumberData: "kosong",
   },
   {
     id: 2,
-    idKel: "suge321",
-    nama: "Andreas Suge",
-    nik: "720118054100002",
-    tempat: "Dusun 5",
-    ttl: "Palu,11 maret 1996",
-    umur: 16,
-    kelamin: "laki-laki",
+    // ak: "kosong",
+    // kk: "kosong",
+    // ddk: "kosong",
+    idKel: "suge55",
+    kepalaKeluarga: "Andreas Suge",
+    alamat: "kosong",
+    rw: "kosong",
+    rt: "kosong",
+    dusun: "Dusun 8",
+    bulan: "maret",
+    tahun: "2024",
+    pengisi: "ksong",
     pekerjaan: "petani",
-    keterangan: "kosong",
+    jabatan: "kosong",
+    sumberData: "kosong",
   },
 ];
 
@@ -73,9 +85,12 @@ const DataKeluarga = (props: AnggotaKeluargaProps) => {
   return (
     <div>
       <div>
-        <div>kode keluarga : {dataPenduduk[params.anggotaKeluarga[0]].nik}</div>
         <div>
-          nama kepala keluarga :{dataPenduduk[params.anggotaKeluarga[0]].nama}
+          kode keluarga : {dataPenduduk[params.anggotaKeluarga[0]]?.idKel}
+        </div>
+        <div>
+          nama kepala keluarga :
+          {dataPenduduk[params.anggotaKeluarga[0]]?.kepalaKeluarga}
         </div>
         <div>DAFTAR ANGGOTA KELUARGA</div>
 
