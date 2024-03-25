@@ -37,7 +37,7 @@ const dataKepalaDesa = [
 export default function History() {
   return (
     <div>
-      <div className="w-full flex px-20 gap-10 mt-4">
+      {/* <div className="w-full flex px-20 gap-10 mt-4">
         <div className="w-[70%] ">
           <h1 className="text-2xl font-bold text-gray-700 mb-2">SEJARAH</h1>
           <p className="text-gray-600 text-md text-justify">
@@ -184,7 +184,7 @@ export default function History() {
           10. Risma <br />
           11. Organisasi Pemuda Kristen <br />
         </p>
-      </div>
+      </div> */}
 
       {/* text editor */}
       <div className="w-8/12 ms-5  bg-white p-5 rounded-md shadow-md border">

@@ -4,7 +4,6 @@ import Image from "next/image";
 import hero from "../../../public/assets/img/hero.jpg";
 import senja from "../../../public/assets/img/senja.jpg";
 import pantai from "../../../public/assets/img/pantaibiru.jpg";
-import strukturOrganitation from "../../../public/assets/img/pop-up-surat.png";
 import History from "./sejarah/page";
 import DataPenduduk from "./data-penduduk/page";
 import Wisata from "./wisata/page";
@@ -12,9 +11,8 @@ import InfoPembangunan from "./pembangunan/page";
 import Links from "./Links";
 import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { TbSend } from "react-icons/tb";
+
 
 // Import Swiper styles
 import "swiper/css";
