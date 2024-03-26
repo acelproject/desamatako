@@ -1,4 +1,5 @@
 import React from "react";
+import TableAnggotaKeluarga from "./TableAnggotaKeluarga";
 const dataPenduduk = [
   {
     id: 1,
@@ -41,22 +42,44 @@ const dataPenduduk = [
 const daftarKeluarga = [
   {
     id: "1",
+    tanggal: "11/03/2024",
+    noUrut: "5",
+    noAkteKel: "27773884664909",
+    tempatLahir: "Palu",
+    tanggalLahir: 11,
+    umur: 24,
+    agama: "Kristen",
+    golDarah: "A",
+    tanggalCatat: "12/04/2024",
+    statusKawin: "Belum Menikah",
     idKel: dataPenduduk[0].idKel,
     nama: "Yohanes Marchel",
     hubungan: "Kepala Keluarga",
     nik: "72011800000004",
     jenisKelamin: "laki-laki",
+    negara:"Indonesia"
   },
   {
     id: "2",
+    tanggal: "11/03/2024",
+    noUrut: "5",
+    noAkteKel: "27773884664909",
+    tempatLahir: "Palu",
+    tanggalLahir: 11,
+    umur: 24,
+    agama: "Kristen",
+    golDarah: "A",
+    tanggalCatat: "12/04/2024",
+    statusKawin: "Belum Menikah",
     idKel: dataPenduduk[0].idKel,
     nama: "Ishak",
     hubungan: "Kakak Pertama",
     nik: "72011800000006",
     jenisKelamin: "laki-laki",
+    negara:"Indonesia"
   },
   {
-    id: "1",
+    id: "3",
     idKel: dataPenduduk[1].idKel,
     nama: "Andreas Suge",
     hubungan: "Kepala Keluarga",
@@ -64,7 +87,7 @@ const daftarKeluarga = [
     jenisKelamin: "laki-laki",
   },
   {
-    id: "2",
+    id: "4",
     idKel: dataPenduduk[1].idKel,
     nama: "Natan",
     hubungan: "Kakak Pertama",
@@ -86,27 +109,13 @@ const DataKeluarga = (props: AnggotaKeluargaProps) => {
     <div>
       <div>
         <div>
-          kode keluarga : {dataPenduduk[params.anggotaKeluarga[0]]?.idKel}
-        </div>
-        <div>
-          nama kepala keluarga :
-          {dataPenduduk[params.anggotaKeluarga[0]]?.kepalaKeluarga}
-        </div>
-        <div>DAFTAR ANGGOTA KELUARGA</div>
-
-        <div>
-          {anggotaKelarga.map((e, i) => (
-            <div key={i}>
-              <div className="font-bold">{e.id}</div>
-              <div className="font-bold">
-                nama : <span className="font-normal">{e.nama}</span>
-              </div>
-              <div className="font-bold">
-                hubungan dalam keluarga :{" "}
-                <span className="font-normal"> {e.hubungan}</span>{" "}
-              </div>
-            </div>
-          ))}
+          <TableAnggotaKeluarga
+            anggotaKeluarga={anggotaKelarga}
+            kodeKeluarga={dataPenduduk[params.anggotaKeluarga[0]]?.idKel}
+            kepalaKeluarga={
+              dataPenduduk[params.anggotaKeluarga[0]]?.kepalaKeluarga
+            }
+          />
         </div>
       </div>
     </div>

@@ -11,9 +11,19 @@ import ShowEntries from "./ShowEntries";
 export default function TableWrapper(props: {
   children: any;
   tableTitle: string;
-  href:string;
+  href: string;
+  kodeKeluarga?: string;
+  kepalaKeluarga?: string;
+  textTambahData?: string;
 }) {
-  const { children, tableTitle ,href} = props;
+  const {
+    children,
+    tableTitle,
+    href,
+    kodeKeluarga,
+    kepalaKeluarga,
+    textTambahData,
+  } = props;
 
   const pathname = usePathname();
 
@@ -45,11 +55,14 @@ export default function TableWrapper(props: {
       >
         <h1 className="text-xl font-semibold text-white py-3 ">{tableTitle}</h1>
 
-        <Link href={href} className="flex items-center gap-1 hover:bg-white transition-all hover:text-primary py-1 px-2 text-sm text-white cursor-pointer rounded-md border  border-white">
+        <Link
+          href={href}
+          className="flex items-center gap-1 hover:bg-white transition-all hover:text-primary py-1 px-2 text-sm text-white cursor-pointer rounded-md border  border-white"
+        >
           <div className="font-bold">
             <FaPlus />
           </div>
-          <div>Tambah data</div>
+          {textTambahData ? <div>{textTambahData}</div> : <div>Tambah data</div>}
         </Link>
       </div>
 
@@ -58,8 +71,20 @@ export default function TableWrapper(props: {
           pathname === "/admin/user" ? "pt-5" : ""
         }`}
       >
+        {kodeKeluarga && (
+          <div className="w-full bg-white border-b py-3 text-slate-700 font-semibold">
+            <p>
+              Kode Keluarga :{" "}
+              <span className="font-medium">{kodeKeluarga}</span>{" "}
+            </p>
+            <p>
+              Kepala Keluarga:{" "}
+              <span className="font-medium">{kepalaKeluarga}</span>{" "}
+            </p>
+          </div>
+        )}
         {/* show entries */}
-        <ShowEntries/>
+        <ShowEntries />
         <div className="flex flex-col overflow-x-auto scrollbar-thin scrollbar-w-4 scrollbar-h-4 ">
           <div className=" sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full sm:px-6 lg:px-8 ">
