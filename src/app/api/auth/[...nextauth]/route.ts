@@ -27,7 +27,7 @@ const authOptions: NextAuthOptions = {
           username: "admin",
           role: "admin",
         };
-        if (username === "admin" && password === "desamatako2024") {
+        if (username === "admin" && password === process.env.PASS_ADMIN) {
           return user;
         } else {
           return null;
