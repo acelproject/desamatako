@@ -84,7 +84,7 @@ export default function TableAnggotaKeluarga(props: TabelAnggotaKeluargaProps) {
               <TableTd>{data.tanggalLahir}</TableTd>
               <TableTd>{data.umur}</TableTd>
               <TableTd>{data.tanggalCatat}</TableTd>
-              <TableTd>{data.status}</TableTd>
+              <TableTd>{data.statusKawin}</TableTd>
               <TableTd>{data.agama}</TableTd>
               <TableTd>{data.golDarah}</TableTd>
               <TableTd>{data.negara}</TableTd>
