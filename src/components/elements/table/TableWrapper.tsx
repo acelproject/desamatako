@@ -54,7 +54,7 @@ export default function TableWrapper(props: {
       <div
         className={`w-full bg-primary rounded-t-sm flex items-center justify-between px-7 `}
       >
-        <h1 className="text-xl font-semibold text-white py-3 ">{tableTitle}</h1>
+        <h1 className="text-lg font-semibold text-white py-3 ">{tableTitle}</h1>
 
         <Link
           href={href}

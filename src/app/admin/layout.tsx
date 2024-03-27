@@ -8,7 +8,7 @@ import { AiFillProfile } from "react-icons/ai";
 import { FaRegBuilding, FaUser } from "react-icons/fa";
 import { FaMountainSun } from "react-icons/fa6";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
-import { IoIosArrowDown,IoIosSettings  } from "react-icons/io";
+import { IoIosArrowDown, IoIosSettings } from "react-icons/io";
 import { LiaUserTimesSolid } from "react-icons/lia";
 import Logo from "../../../public/assets/img/logo.png";
 import React, { useState } from "react";
@@ -222,12 +222,16 @@ const ListMenu = ({ menu }: any) => {
             dropDownActive ? "flex" : "hidden"
           }`}
         >
-          <li className="hover:text-white text-gray-300 cursor-pointer">
-            Alamat
-          </li>
-          <li className="hover:text-white text-gray-300 cursor-pointer">
-            Jenis Surat
-          </li>
+          <Link href={`/admin/kategori/alamat`}>
+            <li className="hover:text-white text-gray-300 cursor-pointer">
+              Alamat
+            </li>
+          </Link>
+          <Link href={`/admin/kategori/jenis-surat`}>
+            <li className="hover:text-white text-gray-300 cursor-pointer">
+              Jenis Surat
+            </li>
+          </Link>
         </div>
       )}
       {menu.title === "Settings" && (
@@ -246,7 +250,6 @@ const ListMenu = ({ menu }: any) => {
               Users
             </li>
           </Link>
-
         </div>
       )}
     </>
