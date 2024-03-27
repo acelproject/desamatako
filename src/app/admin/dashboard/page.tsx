@@ -38,7 +38,7 @@ const DashboardAdmin = () => {
   return (
     <>
       <div className="w-full px-7">
-        <h1 className="text-3xl font-semibold ">Dashboard</h1>
+        <h1 className="text-2xl font-semibold ">Dashboard</h1>
       </div>
         <div className="w-3/12 px-7 mt-3">
             <div

@@ -40,12 +40,12 @@ export default function TableAnggotaKeluarga(props: TabelAnggotaKeluargaProps) {
   return (
     <>
       <div className="w-full px-7 mb-2">
-        <h1 className="text-2xl font-semibold">Data Daftar Anggota Keluarga</h1>
+        <h1 className="text-2xl font-semibold">Data Anggota Keluarga</h1>
       </div>
 
       <div className="w-ful mx-6 mt-2">
         <TableWrapper
-          tableTitle="Table Daftar Anggota Keluarga"
+          tableTitle="Table Anggota Keluarga"
           href=""
           kodeKeluarga={kodeKeluarga}
           kepalaKeluarga={kepalaKeluarga}

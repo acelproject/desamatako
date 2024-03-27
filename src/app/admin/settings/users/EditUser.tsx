@@ -4,10 +4,10 @@ import { FaEdit, FaPlus, FaSave } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 type AddDataProps = {
-    showEditData: Boolean;
-    setShowEditData: any;
+  showEditData: Boolean;
+  setShowEditData: any;
 };
-const EditUser = ({ showEditData,setShowEditData }: AddDataProps) => {
+const EditUser = ({ showEditData, setShowEditData }: AddDataProps) => {
   const overlay = useRef(null);
 
   const close: MouseEventHandler = (e) => {
@@ -90,12 +90,15 @@ const EditUser = ({ showEditData,setShowEditData }: AddDataProps) => {
             </div>
           </div>
 
-          <div className="mt-5 flex justify-end">
+          <div className="mt-5 flex justify-between">
+            <button
+              className="bg-slate-100 shadow px-4 py-[7px] mt-[-1px] flex gap-1 text-slate-800 border items-center rounded-full"
+              onClick={() => setShowEditData(false)}
+            >
+              <div>Close</div>
+            </button>
             <button className="bg-primary px-4 py-[7px] flex gap-1 text-white items-center rounded-full">
-              <div>
-              <FaEdit />
-              </div>
-              <div>Edit User</div>
+              <div>Save</div>
             </button>
           </div>
         </div>

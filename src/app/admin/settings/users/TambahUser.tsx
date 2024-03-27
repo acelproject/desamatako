@@ -87,12 +87,12 @@ const TambahUser = ({ showAddData, setShowAddData }: AddDataProps) => {
             </div>
           </div>
 
-          <div className="mt-5 flex justify-end">
-            <button className="bg-primary px-4 py-[7px] flex gap-1 text-white items-center rounded-full">
-              <div>
-                <FaPlus />
-              </div>
-              <div>Tambah User</div>
+          <div className="mt-5 flex justify-between">
+            <button className="bg-slate-100 shadow px-4 py-[7px] mt-[-1px] flex gap-1 text-slate-800 border items-center rounded-full" onClick={() => setShowAddData(false)}>
+              <div>Close</div>
+            </button>
+            <button className="bg-primary px-4 py-[7px] flex gap-1 mt-[-1px] text-white items-center rounded-full">
+              <div>Save</div>
             </button>
           </div>
         </div>

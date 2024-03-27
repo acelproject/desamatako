@@ -7,7 +7,7 @@ import Image from "next/image";
 const BiodataUsers = () => {
   return (
     <div className="w-full">
-      <div className="mx-5 my-4 font-semibold text-3xl">Biodata</div>
+      <div className="mx-5 my-4 font-semibold text-2xl">Biodata</div>
       <div className="flex mx-5 gap-5">
         <div className="bg-white border shadow-md rounded-md w-[40%] overflow-hidden">
           <div className="bg-primary flex gap-2 items-center px-5 py-3 text-white">
