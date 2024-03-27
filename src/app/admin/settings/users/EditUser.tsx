@@ -1,6 +1,6 @@
 "use client";
 import React, { MouseEventHandler, useRef, useState } from "react";
-import { FaPlus, FaSave } from "react-icons/fa";
+import { FaEdit, FaPlus, FaSave } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 type AddDataProps = {
@@ -93,9 +93,9 @@ const EditUser = ({ showEditData,setShowEditData }: AddDataProps) => {
           <div className="mt-5 flex justify-end">
             <button className="bg-primary px-4 py-[7px] flex gap-1 text-white items-center rounded-full">
               <div>
-                <FaPlus />
+              <FaEdit />
               </div>
-              <div>Tambah User</div>
+              <div>Edit User</div>
             </button>
           </div>
         </div>

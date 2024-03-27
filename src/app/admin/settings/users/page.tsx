@@ -25,7 +25,10 @@ export default function DataPendudukAdmin() {
   return (
     <>
       <TambahUser showAddData={showAddData} setShowAddData={closeShowAddData} />
-      <EditUser showEditData={showEditData} setShowEditData={closeShowEditData}/>
+      <EditUser
+        showEditData={showEditData}
+        setShowEditData={closeShowEditData}
+      />
       <div className="w-full px-7 mb-6">
         <h1 className="text-2xl font-semibold">User</h1>
       </div>
@@ -80,9 +83,10 @@ export default function DataPendudukAdmin() {
                           </span>
                         </TableTd>
                         <TableTd>
-                          <div className="flex gap-2 text-slate-600 text-md">
-                            <div className="hover:text-primary transition-all text-yellow-600"
-                            onClick={() => setShowEditData(true)}
+                          <div className="flex gap-2 text-slate-600 text-lg">
+                            <div
+                              className="hover:text-primary transition-all text-yellow-600"
+                              onClick={() => setShowEditData(true)}
                             >
                               <FaRegEdit />
                             </div>
