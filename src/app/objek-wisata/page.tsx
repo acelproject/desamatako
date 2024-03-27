@@ -41,7 +41,7 @@ export default function ObjekWisata() {
           </div>
           <div className="w-full mx-auto  mt-5 ">
             <div className="w-full flex md:h-60 lg:h-64 justify-center">
-              <div className="w-1/3   wisata-img md:translate-x-3 lg:translate-x-6 relative flex justify-center items-center rounded-l-lg overflow-hidden">
+              <div className="w-1/3   wisata-img md:translate-x-6 lg:translate-x-9 relative flex justify-center items-center rounded-l-lg overflow-hidden">
                 <Image
                   src={imgCard1}
                   alt="Wisata Ilustration"
@@ -82,7 +82,7 @@ export default function ObjekWisata() {
           </div>
           <div className="w-full mx-auto  mt-3 ">
             <div className="w-full flex md:h-60 lg:h-64 justify-center">
-              <div className="w-1/3   wisata-img md:translate-x-3 lg:translate-x-6 relative flex justify-center items-center rounded-l-lg overflow-hidden">
+              <div className="w-1/3   wisata-img md:translate-x-6 lg:translate-x-9 relative flex justify-center items-center rounded-l-lg overflow-hidden">
                 <Image
                   src={imgCard2}
                   alt="Wisata Ilustration"
@@ -125,7 +125,7 @@ export default function ObjekWisata() {
           </div>
           <div className="w-full mx-auto  mt-3 ">
             <div className="w-full flex md:h-60 lg:h-64 justify-center">
-              <div className="w-1/3   wisata-img md:translate-x-3 lg:translate-x-6 relative flex justify-center items-center rounded-l-lg overflow-hidden">
+              <div className="w-1/3   wisata-img md:translate-x-6 lg:translate-x-9 relative flex justify-center items-center rounded-l-lg overflow-hidden">
                 <Image
                   src={imgCard3}
                   alt="Wisata Ilustration"

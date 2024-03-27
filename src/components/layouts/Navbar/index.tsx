@@ -138,7 +138,7 @@ export default function Navbar() {
     setSubMenu(false);
   };
 
-  const { status }:{status:string} = useSession();
+  const { status }: { status: string } = useSession();
   return (
     <div>
       {pathName === "/" ? (
@@ -199,13 +199,21 @@ export default function Navbar() {
                 </Link>
               </div>
               <div
-                className={` relative flex justify-center h-8 items-center cursor-pointer  text-gray-300 `}
+                className={` relative flex justify-center items-center cursor-pointer  text-gray-300 `}
                 onMouseEnter={() => handleMouseEnter(2)}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className="flex justify-center">Profil Desa</div>
+                <div
+                  className={`flex justify-center items-center ${
+                    onScroll ? "" : "h-20"
+                  } `}
+                >
+                  Profil Desa
+                </div>
                 <motion.div
-                  className={`bg-black bg-opacity-50 backdrop-blur-sm absolute top-8 left-0 px-4  w-auto pt-5 text-white rounded-sm block ${
+                  className={`bg-black bg-opacity-50 backdrop-blur-sm absolute ${
+                    onScroll ? "top-11" : "top-20"
+                  }  left-0 w-auto pt-5 text-white rounded-sm block ${
                     subMenu ? "block" : "hidden"
                   }`}
                   initial={{ y: 20, opacity: 0 }}
@@ -221,7 +229,7 @@ export default function Navbar() {
                   {submenus.map((submenu) => (
                     <li
                       key={submenu.id}
-                      className="mb-3 w-[210px] rounded-sm hover:bg-primary transition-all duration-200 delay-150 py-1 px-2 hover:text-white font-normal"
+                      className="mb-3 w-[230px] rounded-sm hover:bg-primary transition-all duration-200 delay-150 py-1 px-5 hover:text-white font-normal"
                     >
                       <Link href={`/profil-desa${submenu.href}`}>
                         {submenu.title}
@@ -266,18 +274,18 @@ export default function Navbar() {
               <li className="text-white">
                 {status === "authenticated" ? (
                   <button
-                  onClick={() => signOut()}
-                  className="bg-primary px-5 font-medium py-2 rounded-full uppercase"
-                >
-                  Logout
-                </button>
-                ):(
+                    onClick={() => signOut()}
+                    className="bg-primary px-5 font-medium py-2 rounded-full uppercase"
+                  >
+                    Logout
+                  </button>
+                ) : (
                   <button
-                  onClick={() => signIn()}
-                  className="bg-primary px-5 font-medium py-2 rounded-full uppercase"
-                >
-                  Login
-                </button>
+                    onClick={() => signIn()}
+                    className="bg-primary px-5 font-medium py-2 rounded-full uppercase"
+                  >
+                    Login
+                  </button>
                 )}
               </li>
             </ul>
@@ -346,7 +354,7 @@ export default function Navbar() {
                 </Link>
               </div>
               <div
-                className={` relative flex justify-center h-8 items-center cursor-pointer  ${
+                className={`relative z-20 flex justify-center  items-center cursor-pointer  ${
                   pathName === "/profil-desa/sejarah" ||
                   pathName === "/profil-desa/visi-misi" ||
                   pathName === "/profil-desa/struktur-organisasi" ||
@@ -361,7 +369,11 @@ export default function Navbar() {
                 onMouseLeave={handleMouseLeave}
                 // onClick={() => handleActive()}
               >
-                <div className="flex justify-center">
+                <div
+                  className={`flex justify-center  z-20 ${
+                    onScroll ? "" : "h-20"
+                  }  items-center`}
+                >
                   {pathName === "/profil-desa/sejarah" ||
                   pathName === "/profil-desa/visi-misi" ||
                   pathName === "/profil-desa/struktur-organisasi" ||
@@ -384,7 +396,9 @@ export default function Navbar() {
                   Profil Desa
                 </div>
                 <motion.div
-                  className={`bg-black bg-opacity-50 backdrop-blur-sm absolute top-8 left-0 px-4  w-auto pt-5 text-white rounded-sm block ${
+                  className={`bg-black bg-opacity-50 backdrop-blur-sm absolute ${
+                    onScroll ? "top-11" : "top-20"
+                  }  left-0  w-auto pt-5 text-white rounded-sm block ${
                     subMenu ? "block" : "hidden"
                   }`}
                   initial={{ y: 20, opacity: 0 }}
@@ -400,7 +414,7 @@ export default function Navbar() {
                   {submenus.map((submenu) => (
                     <li
                       key={submenu.id}
-                      className="mb-3 w-[200px] rounded-sm hover:bg-primary transition-all duration-200 delay-150 py-1 px-2 hover:text-white font-normal"
+                      className="mb-3 w-[230px] rounded-sm hover:bg-primary transition-all duration-200 delay-150 py-1 px-5 hover:text-white font-normal"
                       // onClick={() => setActiveMenu(submenu.id)}
                     >
                       <Link href={`/profil-desa${submenu.href}`}>

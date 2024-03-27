@@ -15,6 +15,7 @@ export default function TableWrapper(props: {
   kodeKeluarga?: string;
   kepalaKeluarga?: string;
   textTambahData?: string;
+  onClickAddData?:any;
 }) {
   const {
     children,
@@ -58,6 +59,7 @@ export default function TableWrapper(props: {
         <Link
           href={href}
           className="flex items-center gap-1 hover:bg-white transition-all hover:text-primary py-1 px-2 text-sm text-white cursor-pointer rounded-md border  border-white"
+          
         >
           <div className="font-bold">
             <FaPlus />

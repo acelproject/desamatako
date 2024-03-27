@@ -8,7 +8,7 @@ import { AiFillProfile } from "react-icons/ai";
 import { FaRegBuilding, FaUser } from "react-icons/fa";
 import { FaMountainSun } from "react-icons/fa6";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown,IoIosSettings  } from "react-icons/io";
 import { LiaUserTimesSolid } from "react-icons/lia";
 import Logo from "../../../public/assets/img/logo.png";
 import React, { useState } from "react";
@@ -35,7 +35,7 @@ const menus = [
   },
   {
     id: 3,
-    title: "Data Dasar Keluarga",
+    title: "Data Penduduk",
     arrow: false,
     href: "/admin/data-penduduk",
     icon: <FaPeopleRoof />,
@@ -85,10 +85,10 @@ const menus = [
   },
   {
     id: 10,
-    title: "User",
-    href: "/admin/user",
-    arrow: false,
-    icon: <FaUser />,
+    title: "Settings",
+    href: "javascript: void(0)",
+    arrow: true,
+    icon: <IoIosSettings />,
   },
 ];
 
@@ -188,7 +188,7 @@ const ListMenu = ({ menu }: any) => {
       </Link>
       {menu.title === "Profile Desa" && (
         <div
-          className={`text-sm flex-col gap-1 px-12 pt-1 ${
+          className={`text-[15px] flex-col gap-1 px-12 pt-1 ${
             dropDownActive ? "flex" : "hidden"
           }`}
         >
@@ -218,7 +218,7 @@ const ListMenu = ({ menu }: any) => {
       )}
       {menu.title === "Kategori" && (
         <div
-          className={`text-sm flex-col gap-1 px-12 pt-1 ${
+          className={`text-[15px] flex-col gap-1 px-12 pt-1 ${
             dropDownActive ? "flex" : "hidden"
           }`}
         >
@@ -228,6 +228,25 @@ const ListMenu = ({ menu }: any) => {
           <li className="hover:text-white text-gray-300 cursor-pointer">
             Jenis Surat
           </li>
+        </div>
+      )}
+      {menu.title === "Settings" && (
+        <div
+          className={`text-[15px] flex-col gap-1 px-12 pt-1 ${
+            dropDownActive ? "flex" : "hidden"
+          }`}
+        >
+          <Link href={`/admin/settings/biodata`}>
+            <li className="hover:text-white text-gray-300 cursor-pointer">
+              Biodata
+            </li>
+          </Link>
+          <Link href={`/admin/settings/users`}>
+            <li className="hover:text-white text-gray-300 cursor-pointer">
+              Users
+            </li>
+          </Link>
+
         </div>
       )}
     </>

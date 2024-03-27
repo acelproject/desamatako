@@ -115,9 +115,7 @@ export default function WritingLetters() {
   return (
     <PagesWrapper pageTitle="Pembuatan Surat">
       <div className="w-full">
-        <h1
-          className={`text-3xl font-semibold text-center mb-10 `}
-        >
+        <h1 className={`text-3xl font-semibold text-center mb-10 `}>
           {" "}
           FORM PERMOHONAN PEMBUATAN SURAT
         </h1>
@@ -169,7 +167,7 @@ export default function WritingLetters() {
                     </label>
 
                     <div
-                      className="bg-gray-200 px-3 py-2 rounded-md text-center cursor-pointer"
+                      className="bg-gray-200 px-3 py-2 rounded-md text-center cursor-pointer relative"
                       onClick={() => setActiveDusun(!activeDusun)}
                     >
                       {textDusun}
@@ -178,7 +176,7 @@ export default function WritingLetters() {
                     <motion.ul
                       className={`${
                         activeDusun ? "block" : "hidden"
-                      } bg-slate-100 rounded-md absolute w-full top-16 overflow-hidden`}
+                      } bg-slate-100 rounded-md absolute w-full top-[75px] overflow-hidden`}
                       initial={{ y: -20, opacity: 0 }}
                       whileInView={{ y: 0, opacity: 1 }}
                       transition={{
@@ -367,7 +365,7 @@ export default function WritingLetters() {
                     {menusSurat.map((data) => (
                       <li
                         key={data.id}
-                        className="hover:bg-primary px-3 py-1 transition-all duration-100"
+                        className="hover:bg-primary px-3 hover:text-white py-1 transition-all duration-100"
                         onClick={() =>
                           handleDropJenis({
                             title: data.nama,

@@ -53,10 +53,10 @@ export default function DataPendudukAdmin() {
   return (
     <>
       <div className="w-full px-7 mb-6">
-        <h1 className="text-2xl font-semibold">Data Dasar Keluarga</h1>
+        <h1 className="text-2xl font-semibold">Data Penduduk</h1>
       </div>
       <div className="w-ful mx-6 mt-2">
-        <TableWrapper tableTitle="Table Data Dasar Keluarga" href="/admin/data-penduduk/tambah-data">
+        <TableWrapper tableTitle="Table Data Penduduk" href="/admin/data-penduduk/tambah-data">
           <TableThead>
             <TableTh>No</TableTh>
             <TableTh>AK</TableTh>
