@@ -8,7 +8,7 @@ const TambahData = () => {
         <h1 className="font-semibold text-2xl">Tambah Data Penduduk</h1>
       </div>
       <div className="bg-white rounded-md border shadow-md mx-5 overflow-hidden pb-5">
-        <h1 className="text-2xl font-semibold w-full bg-primary text-white px-4 py-3 mb-4">
+        <h1 className="text-[18px] font-semibold w-full bg-primary text-white px-4 py-3 mb-4">
           Tambah Data
         </h1>
         <div className="mx-5 flex flex-col gap-4">
