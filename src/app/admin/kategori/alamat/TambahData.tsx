@@ -1,7 +1,6 @@
 "use client";
 
 import React, { MouseEventHandler, useRef, useState } from "react";
-import { IoIosArrowDown } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 type AddDataProps = {
   showAddData: Boolean;
@@ -15,8 +14,6 @@ const TambahDataAlamat = ({ showAddData, setShowAddData }: AddDataProps) => {
       setShowAddData(false);
     }
   };
-
-  const [levelUser, setLevelUser] = useState(false);
   return (
     <div
       ref={overlay}

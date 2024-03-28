@@ -16,7 +16,6 @@ const TambahDataJenisSurat = ({ showAddData, setShowAddData }: AddDataProps) => 
     }
   };
 
-  const [levelUser, setLevelUser] = useState(false);
   return (
     <div
       ref={overlay}
