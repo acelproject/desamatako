@@ -204,16 +204,16 @@ export default function Navbar() {
                 onMouseLeave={handleMouseLeave}
               >
                 <div
-                  className={`flex justify-center items-center ${
-                    onScroll ? "" : "h-20"
+                  className={`flex justify-center items-center transition-all ${
+                    onScroll ? "h-16" : "h-20"
                   } `}
                 >
                   Profil Desa
                 </div>
                 <motion.div
                   className={`bg-black bg-opacity-50 backdrop-blur-sm absolute ${
-                    onScroll ? "top-11" : "top-20"
-                  }  left-0 w-auto pt-5 text-white rounded-sm block ${
+                    onScroll ? "top-16" : "top-20"
+                  }  left-0  w-auto pt-5 text-white rounded-sm block ${
                     subMenu ? "block" : "hidden"
                   }`}
                   initial={{ y: 20, opacity: 0 }}
@@ -371,7 +371,7 @@ export default function Navbar() {
               >
                 <div
                   className={`flex justify-center  z-20 ${
-                    onScroll ? "" : "h-20"
+                    onScroll ? "h-16" : "h-20"
                   }  items-center`}
                 >
                   {pathName === "/profil-desa/sejarah" ||
@@ -383,10 +383,10 @@ export default function Navbar() {
                   pathName === "/profil-desa/tpd" ? (
                     <motion.div
                       layoutId="bubble"
-                      className={`bg-primary absolute w-1 h-1 ${
-                        onScroll ? "-bottom-[2px]" : "-bottom-2"
+                      className={`bg-primary absolute w-1 h-1  ${
+                        onScroll ? "-bottom-[-10px]" : "bottom-4"
                       } -bottom-2 ${
-                        onHover ? "-bottom-3" : " -bottom-2"
+                        onHover ? "-bottom-3" : "-bottom-2"
                       }  rounded-full `}
                       transition={{ type: "spring", duration: 0.6 }}
                     ></motion.div>
@@ -397,7 +397,7 @@ export default function Navbar() {
                 </div>
                 <motion.div
                   className={`bg-black bg-opacity-50 backdrop-blur-sm absolute ${
-                    onScroll ? "top-11" : "top-20"
+                    onScroll ? "top-16" : "top-20"
                   }  left-0  w-auto pt-5 text-white rounded-sm block ${
                     subMenu ? "block" : "hidden"
                   }`}
