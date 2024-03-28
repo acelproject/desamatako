@@ -31,9 +31,6 @@ const BiodataUsers = () => {
                 type="file"
                 className="text-slate-500 w-[70%] py-1 px-3 border rounded-full"
               />
-              <button className="bg-primary px-4 py-1 font-medium rounded-full text-white">
-                Upload
-              </button>
             </div>
           </div>
         </div>
