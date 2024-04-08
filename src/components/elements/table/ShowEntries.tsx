@@ -4,9 +4,12 @@ import { usePathname } from "next/navigation";
 import React, { useRef, useState } from "react";
 import { TbSelector } from "react-icons/tb";
 
-const ShowEntries = () => {
+
+
+const ShowEntries = ({handleSearch,searchQuery,setSearchQuery}:any) => {
   const [showEntries, setShowEntries] = useState(false);
   const [countEntries, setcountShowEntries] = useState(10);
+
 
   const handleHideEntries = () => {
     setShowEntries(!showEntries);
@@ -65,10 +68,10 @@ const ShowEntries = () => {
         </button>
         <div>entries</div>
       </div>
-      <div className="flex gap-2">
-        <div className="text-slate-500">Search :</div>
+      <div className="flex gap-2 items-center">
+        <button className="bg-primary px-2 py-1 text-white font-medium rounded-md" onClick={handleSearch}>Search</button>
         <div>
-          <input type="text" className="border" />
+          <input type="text" className="border px-2 py-1 rounded-md" name="search" id="search" onChange={(e)=>setSearchQuery(e.target.value)} value={searchQuery}/>
         </div>
       </div>
     </div>

@@ -37,7 +37,7 @@ export default function MarketPage() {
     <div className=" flex gap-5 bg-white flex-wrap w-10/12 justify-center mx-auto">
       {products.data?.length &&
         products.data?.map((product: any, i: any) => (
-          <Link href={`market/detail/${product.id}`} key={i}>
+          <Link href={`/market/detail/${product.id}`} key={i}>
             <Image src={product.img} alt="" width={300} height={200} priority />
             <div>nama: {product.nama}</div>
             <div className="text-3xl">Harga: {product.harga}</div>

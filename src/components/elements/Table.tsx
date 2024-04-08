@@ -5,23 +5,53 @@ import { useState } from "react";
 import { FaRegEye } from "react-icons/fa";
 import { GoTrash } from "react-icons/go";
 import ShowEntries from "./table/ShowEntries";
+import useSWR from "swr";
 
-const wargas = [
-  {
-    id: 1,
-    nama: "Andreas Suge",
-    jenisSurat: "Surat Keterangan Nikah",
-  },
-  {
-    id: 2,
-    nama: "Marchel Lumimpah",
-    jenisSurat: "Surat Keterangan Usaha",
-  },
-];
+// const wargas = [
+//   {
+//     id: 1,
+//     nama: "Andreas Suge",
+//     jenisSurat: "Surat Keterangan Nikah",
+//   },
+//   {
+//     id: 2,
+//     nama: "Marchel Lumimpah",
+//     jenisSurat: "Surat Keterangan Usaha",
+//   },
+// ];
 
+// const getSuratMasuk = async () => {
+//   try {
+//     const res = await fetch(
+//       `${process.env.NEXT_PUBLIC_API_URL}/api/surat-masuk`,
+//       {
+//         cache: "no-store",
+//       }
+//     );
+
+//     if (!res.ok) {
+//       throw new Error("Gagal memuat data!");
+//     }
+
+//     return res.json();
+//   } catch (error) {
+//     console.log(`Error : ${error}`);
+//   }
+// };
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 export default function Table(props: { title: string }) {
   const [tabs, setTabs] = useState(1);
   const { title } = props;
+
+  // const { suratMasuk } = await getSuratMasuk();
+  const { data, error } = useSWR(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/surat-masuk`,
+    fetcher
+  );
+
+  const suratMasuk: any = { data: data?.suratMasuk };
+
+  console.log(suratMasuk);
   return (
     <div className="">
       <div className="flex bg-white border-b ">
@@ -122,58 +152,38 @@ export default function Table(props: { title: string }) {
                         </th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr className="border-b dark:bg-neutral-700 font-normal">
-                        <td className="whitespace-nowrap px-6 py-4 font-medium">
-                          1
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4">22.00</td>
-                        <td className="whitespace-nowrap px-6 py-4">
-                          Marchel Lumimipah
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4">
-                          20726656355333
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4">
-                          082293356571
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4">
-                          Surat Ket.Nikah
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4">
-                          <Link href={`/admin/permohonan-surat/${1}`}>
-                            <span className="text-slate-600 hover:text-primary text-lg">
-                              <FaRegEye />
-                            </span>
-                          </Link>
-                        </td>
-                      </tr>
-                      <tr className="border-b dark:bg-neutral-700 font-normal">
-                        <td className="whitespace-nowrap px-6 py-4 font-medium">
-                          1
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4">22.00</td>
-                        <td className="whitespace-nowrap px-6 py-4">
-                          Marchel Lumimipah
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4">
-                          20726656355333
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4">
-                          082293356571
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4">
-                          Surat Ket.Usaha
-                        </td>
-                        <td className="whitespace-nowrap px-6 py-4">
-                          <Link href={`/admin/permohonan-surat/${2}`}>
-                            <span className="text-slate-600 hover:text-primary text-lg">
-                              <FaRegEye />
-                            </span>
-                          </Link>
-                        </td>
-                      </tr>
-                    </tbody>
+                    {suratMasuk.data?.length &&
+                      suratMasuk.data?.map((item: any, i: any) => (
+                        <tbody>
+                          <tr className="border-b dark:bg-neutral-700 font-normal">
+                            <td className="whitespace-nowrap px-6 py-4 font-medium">
+                              {i + 1}
+                            </td>
+                            <td className="whitespace-nowrap px-6 py-4">
+                              {item.createdAt}
+                            </td>
+                            <td className="whitespace-nowrap px-6 py-4">
+                              {item.nama}
+                            </td>
+                            <td className="whitespace-nowrap px-6 py-4">
+                              {item.nama}
+                            </td>
+                            <td className="whitespace-nowrap px-6 py-4">
+                              {item.noWa}
+                            </td>
+                            <td className="whitespace-nowrap px-6 py-4">
+                              {item.jenisSurat}
+                            </td>
+                            <td className="whitespace-nowrap px-6 py-4">
+                              <Link href={`/admin/permohonan-surat/${item._id}/${item.jenisSurat}`}>
+                                <span className="text-slate-600 hover:text-primary text-lg">
+                                  <FaRegEye />
+                                </span>
+                              </Link>
+                            </td>
+                          </tr>
+                        </tbody>
+                      ))}
                   </table>
                 </div>
               </div>

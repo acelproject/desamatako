@@ -6,10 +6,12 @@ import logo from "../../../../public/assets/img/logo.png";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const { push } = useRouter();
+  const [error, setError] = useState("");
   const handleLogin = async (e: any) => {
     e.preventDefault();
     setLoading(true);
@@ -24,8 +26,11 @@ export default function LoginPage() {
         push("/admin");
         setLoading(false);
       } else {
-        setLoading(false);
         console.log(res.error);
+        if (res.status === 401) {
+          setLoading(false);
+          setError("Email or password invalid!");
+        }
       }
     } catch (err) {
       console.log(err);
@@ -34,6 +39,23 @@ export default function LoginPage() {
   return (
     <>
       <section className="bg-gray-50 dark:bg-gray-900 h-[100vh]">
+        {error !== "" && (
+          <motion.div
+            className="relative md:w-3/12 w-8/12 bg-black mx-auto md:top-0 -top-5"
+            initial={{ y: 0 }}
+            animate={{ y: 50, y1: 1 }}
+            
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 30,
+            }}
+          >
+            <div className="px-3 py-5 absolute left-0 w-full text-center font-semibold bg-red-100 rounded-md ">
+              {error}
+            </div>
+          </motion.div>
+        )}
         <div className="flex h-full flex-col items-center justify-center px-6 py-8 mx-auto  lg:py-0">
           <div className="mb-5 flex gap-2 items-center ">
             <div className={`transition-all duration-20 delay-100 w-8`}>
@@ -56,8 +78,8 @@ export default function LoginPage() {
             </div>
           </div>
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 className="text-xl font-bold leading-tight tracking-tight text-primary md:text-2xl dark:text-white">
+            <div className="px-6  sm:px-8 pb-10 pt-2">
+              <h1 className="text-xl font-bold py-4 leading-tight tracking-tight text-primary md:text-2xl dark:text-white">
                 Login Admin
               </h1>
               <form

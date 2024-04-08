@@ -138,7 +138,13 @@ export default function Navbar() {
     setSubMenu(false);
   };
 
-  const { status }: { status: string } = useSession();
+  const logOut = ()=>{
+    localStorage.clear()
+    localStorage.removeItem("nextauth.message")
+    signOut()
+  }
+
+  const {data:session, status }: {data:any, status: string } = useSession();
   return (
     <div>
       {pathName === "/" ? (
@@ -274,10 +280,10 @@ export default function Navbar() {
               <li className="text-white">
                 {status === "authenticated" ? (
                   <button
-                    onClick={() => signOut()}
+                    onClick={logOut}
                     className="bg-primary px-5 font-medium py-2 rounded-full uppercase"
                   >
-                    Logout
+                    Logout {session?.user?.username}
                   </button>
                 ) : (
                   <button
