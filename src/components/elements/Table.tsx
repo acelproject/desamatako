@@ -154,7 +154,7 @@ export default function Table(props: { title: string }) {
                     </thead>
                     {suratMasuk.data?.length &&
                       suratMasuk.data?.map((item: any, i: any) => (
-                        <tbody>
+                        <tbody key={i}>
                           <tr className="border-b dark:bg-neutral-700 font-normal">
                             <td className="whitespace-nowrap px-6 py-4 font-medium">
                               {i + 1}
