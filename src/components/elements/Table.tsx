@@ -31,7 +31,7 @@ export default function Table(props: { title: string }) {
   const { title } = props;
 
   // const { suratMasuk } = await getSuratMasuk();
-  const { data, error } = useSWR(
+  const { data, error ,isLoading} = useSWR(
     `${process.env.NEXT_PUBLIC_API_URL}/api/surat-masuk`,
     fetcher
   );
@@ -125,7 +125,15 @@ export default function Table(props: { title: string }) {
           </h1>
         </div>
         <div className="px-5 pb-5 border border-slate-100">
-          <ShowEntries />
+          <ShowEntries 
+          // handleSearch={handleSearch}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          // handleCountEntries={handleCountEntries}
+          perPages={perPages}
+          setShowEntries={setShowEntries}
+          showEntries={showEntries}
+          />
 
           <div className="flex flex-col">
             <div className="overflow-x-auto sm:-mx-6 lg:-mx-8 ">
@@ -158,7 +166,7 @@ export default function Table(props: { title: string }) {
                       </tr>
                     </thead>
                     {tabs === 1 &&
-                      suratMasuk?.length &&
+                      suratMasuk?.length > 0 ?
                       suratMasuk?.map((item: any, i: any) => (
                         <tbody key={i}>
                           <tr className="border-b dark:bg-neutral-700 font-normal">
@@ -191,7 +199,7 @@ export default function Table(props: { title: string }) {
                             </td>
                           </tr>
                         </tbody>
-                      ))}
+                      )): ("")}
                     {tabs === 2 &&
                       suratDiProses?.length &&
                       suratDiProses?.map((item: any, i: any) => (
@@ -228,6 +236,21 @@ export default function Table(props: { title: string }) {
                         </tbody>
                       ))}
                   </table>
+                  {isLoading && (
+                    <div className="w-full py-5 border-b flex justify-center items-center text-slate-400 text-sm italic">
+                    Memuat ...
+                  </div>
+                  )}
+                  {tabs === 1 && suratMasuk?.length < 1 &&(
+                    <div className="w-full py-5 border-b flex justify-center items-center text-slate-400 text-sm italic">
+                      Masih Kosong ...
+                    </div>
+                  )}
+                  {notFound === true && (
+                    <div className="w-full py-5 flex justify-center items-center text-slate-400 text-sm italic">
+                      Data Tidak Ada ...
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

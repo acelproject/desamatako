@@ -55,9 +55,9 @@ const ShowEntries = ({handleSearch,searchQuery,setSearchQuery,handleCountEntries
             </div>
             <div
               className="text-start ps-3 hover:bg-primary hover:text-white"
-              onClick={() => handleCountEntries(4)}
+              onClick={() => handleCountEntries(5)}
             >
-              4
+              5
             </div>
           </div>
         </button>

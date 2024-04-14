@@ -178,8 +178,7 @@ export default function WritingLetters() {
       });
 
       if (response.ok) {
-        window.location.reload()
-        router.refresh()
+        router.push(`${process.env.NEXT_PUBLIC_API_URL}/pembuatan-surat`)
       }else{
         throw new Error("Ada yang salah")
       }

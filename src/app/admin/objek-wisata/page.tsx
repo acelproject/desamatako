@@ -37,7 +37,7 @@ export default function DataPendudukAdmin() {
   const [paginatedData, setPaginatedData] = useState([]);
   const [currPage, setCurrPage] = useState(1);
   const [notFound, setNotFound] = useState(false);
-  const [perPages, setPerPages] = useState(1);
+  const [perPages, setPerPages] = useState(5);
   const [showEntries, setShowEntries] = useState(false);
 
   // fetch data with SWR
@@ -55,7 +55,7 @@ export default function DataPendudukAdmin() {
     if (searchQuery === "") {
       setFillteredObjek([]);
       pagination(fillteredObjek, currPage);
-      setNotFound(true)
+      setNotFound(true);
       console.log(fillteredObjek);
     } else {
       const lowercaseQuery = searchQuery.toLowerCase();
@@ -68,15 +68,15 @@ export default function DataPendudukAdmin() {
       console.log(filltered);
       setFillteredObjek(filltered);
       paginationFiltered(filltered, currPage);
-      setNotFound(false)
+      setNotFound(false);
     }
   };
-  
-  const handleCountEntries =(value:number)=>{
-    setPerPages(value)
+
+  const handleCountEntries = (value: number) => {
+    setPerPages(value);
     paginationFiltered(objekWisata.data?.objekWisata, currPage);
     setFillteredObjek(objekWisata.data?.objekWisata);
-  }
+  };
   // Pagination fungtion
   const paginationFiltered = (data: any, currPage = 1) => {
     setTotalPages(Math.ceil(data?.length / perPages));
@@ -96,15 +96,11 @@ export default function DataPendudukAdmin() {
     setPaginatedData(data?.objekWisata?.slice(startIndex, endIndex));
   };
 
-
-
-
-
   useEffect(() => {
     pagination(objekWisata.data, currPage);
     paginationFiltered(objekWisata.data?.objekWisata, currPage);
     setFillteredObjek(objekWisata.data?.objekWisata);
-  }, [objekWisata.data, objekWisata.data?.objekWisata,perPages]);
+  }, [objekWisata.data, objekWisata.data?.objekWisata, perPages]);
 
   const handlePrevPage = () => {
     if (currPage > 1) {
@@ -215,106 +211,108 @@ export default function DataPendudukAdmin() {
                         <TableTh>Aksi</TableTh>
                       </TableThead>
                       {objekWisata.data?.objekWisata.length ||
-                      fillteredObjek?.length !== 0 ? (
-                        paginatedData?.map((item: any, i: any) => (
-                          <TableTbody key={i}>
-                            <TableTd>{i + 1}</TableTd>
-                            <TableTd>{item.wisata}</TableTd>
-                            <TableTd>{item.lokasi}</TableTd>
-                            <TableTd>{item.pengelola}</TableTd>
-                            <TableTd>{item.img1}</TableTd>
-                            <TableTd>{item.img2}</TableTd>
-                            <TableTd>{item.img3}</TableTd>
-                            <TableTd>
-                              <div className="flex gap-2 text-slate-600 text-lg">
-                                <Link
-                                  href={`/admin/objek-wisata/detail/${item._id}`}
-                                  className="hover:text-primary transition-all text-yellow-600"
-                                  id={item._id}
-                                  // onClick={() => handleEditData(item._id)}
-                                >
-                                  <FaRegEdit />
-                                </Link>
-                                <div
-                                  className="hover:text-primary transition-all text-red-600"
-                                  onClick={() =>
-                                    removeObjekWisata({
-                                      id: item._id,
-                                      wisata: item.wisata,
-                                    })
-                                  }
-                                >
-                                  <GoTrash />
+                      fillteredObjek?.length !== 0
+                        ? paginatedData?.map((item: any, i: any) => (
+                            <TableTbody key={i}>
+                              <TableTd>{i + 1}</TableTd>
+                              <TableTd>{item.wisata}</TableTd>
+                              <TableTd>{item.lokasi}</TableTd>
+                              <TableTd>{item.pengelola}</TableTd>
+                              <TableTd>{item.img1}</TableTd>
+                              <TableTd>{item.img2}</TableTd>
+                              <TableTd>{item.img3}</TableTd>
+                              <TableTd>
+                                <div className="flex gap-2 text-slate-600 text-lg">
+                                  <Link
+                                    href={`/admin/objek-wisata/detail/${item._id}`}
+                                    className="hover:text-primary transition-all text-yellow-600"
+                                    id={item._id}
+                                    // onClick={() => handleEditData(item._id)}
+                                  >
+                                    <FaRegEdit />
+                                  </Link>
+                                  <div
+                                    className="hover:text-primary transition-all text-red-600"
+                                    onClick={() =>
+                                      removeObjekWisata({
+                                        id: item._id,
+                                        wisata: item.wisata,
+                                      })
+                                    }
+                                  >
+                                    <GoTrash />
+                                  </div>
                                 </div>
-                              </div>
-                            </TableTd>
-                          </TableTbody>
-                        ))
-                      ) : fillteredObjek.length !== 0 ? (
-                        fillteredObjek.map((item: any, i: any) => (
-                          <TableTbody key={i}>
-                            <TableTd>{i + 1}</TableTd>
-                            <TableTd>{item.wisata}</TableTd>
-                            <TableTd>{item.lokasi}</TableTd>
-                            <TableTd>{item.pengelola}</TableTd>
-                            <TableTd>{item.img1}</TableTd>
-                            <TableTd>{item.img2}</TableTd>
-                            <TableTd>{item.img3}</TableTd>
-                            <TableTd>
-                              <div className="flex gap-2 text-slate-600 text-lg">
-                                <Link
-                                  href={`/admin/objek-wisata/detail/${item._id}`}
-                                  className="hover:text-primary transition-all text-yellow-600"
-                                  id={item._id}
-                                  // onClick={() => handleEditData(item._id)}
-                                >
-                                  <FaRegEdit />
-                                </Link>
-                                <div
-                                  className="hover:text-primary transition-all text-red-600"
-                                  onClick={() =>
-                                    removeObjekWisata({
-                                      id: item._id,
-                                      wisata: item.wisata,
-                                    })
-                                  }
-                                >
-                                  <GoTrash />
+                              </TableTd>
+                            </TableTbody>
+                          ))
+                        : fillteredObjek.length !== 0
+                        ? fillteredObjek.map((item: any, i: any) => (
+                            <TableTbody key={i}>
+                              <TableTd>{i + 1}</TableTd>
+                              <TableTd>{item.wisata}</TableTd>
+                              <TableTd>{item.lokasi}</TableTd>
+                              <TableTd>{item.pengelola}</TableTd>
+                              <TableTd>{item.img1}</TableTd>
+                              <TableTd>{item.img2}</TableTd>
+                              <TableTd>{item.img3}</TableTd>
+                              <TableTd>
+                                <div className="flex gap-2 text-slate-600 text-lg">
+                                  <Link
+                                    href={`/admin/objek-wisata/detail/${item._id}`}
+                                    className="hover:text-primary transition-all text-yellow-600"
+                                    id={item._id}
+                                    // onClick={() => handleEditData(item._id)}
+                                  >
+                                    <FaRegEdit />
+                                  </Link>
+                                  <div
+                                    className="hover:text-primary transition-all text-red-600"
+                                    onClick={() =>
+                                      removeObjekWisata({
+                                        id: item._id,
+                                        wisata: item.wisata,
+                                      })
+                                    }
+                                  >
+                                    <GoTrash />
+                                  </div>
                                 </div>
-                              </div>
-                            </TableTd>
-                          </TableTbody>
-                        ))
-                      ) : isLoading ? (
-                        <TableTbody>
-                          <TableTd>Memuat ...</TableTd>
-                          <TableTd>Memuat ...</TableTd>
-                          <TableTd>Memuat ...</TableTd>
-                          <TableTd>memuat ...</TableTd>
-                          <TableTd>Memuat gambar ...</TableTd>
-                          <TableTd>Memuat gambar ...</TableTd>
-                          <TableTd>Memuat gambar ...</TableTd>
-                          <TableTd>
-                            <div className="flex gap-2 text-slate-600 text-lg">
-                              <div className="hover:text-primary transition-all text-yellow-600">
-                                <FaRegEdit />
-                              </div>
-                              <div className="hover:text-primary transition-all text-red-600">
-                                <GoTrash />
-                              </div>
-                            </div>
-                          </TableTd>
-                        </TableTbody>
-                      ) : (
-                        ""
-                      )}
+                              </TableTd>
+                            </TableTbody>
+                          ))
+                        : ""}
                     </table>
-
-                    {objekWisata.data?.objekWisata.length === 0  && (
-                      <div className="w-full py-5 flex justify-center items-center text-slate-400 text-sm italic">Masih Kosong ...</div>
+                    {isLoading && (
+                      <TableTbody>
+                        <TableTd> <span className="text-slate-500">Memuat ...</span> </TableTd>
+                        <TableTd> <span className="text-slate-500">Memuat ...</span> </TableTd>
+                        <TableTd> <span className="text-slate-500">Memuat ...</span> </TableTd>
+                        <TableTd> <span className="text-slate-500">memuat ...</span> </TableTd>
+                        <TableTd> <span className="text-slate-500">Memuat gambar ...</span> </TableTd>
+                        <TableTd> <span className="text-slate-500">Memuat gambar ...</span> </TableTd>
+                        <TableTd> <span className="text-slate-500">Memuat gambar ...</span> </TableTd>
+                        <TableTd>
+                          <div className="flex gap-2 text-slate-600 text-lg">
+                            <div className="hover:text-primary transition-all text-yellow-600">
+                              <FaRegEdit />
+                            </div>
+                            <div className="hover:text-primary transition-all text-red-600">
+                              <GoTrash />
+                            </div>
+                          </div>
+                        </TableTd>
+                      </TableTbody>
+                    )}
+                    {objekWisata.data?.objekWisata.length === 0 && (
+                      <div className="w-full py-5 flex justify-center items-center text-slate-400 text-sm italic">
+                        Masih Kosong ...
+                      </div>
                     )}
                     {notFound === true && (
-                      <div className="w-full py-5 flex justify-center items-center text-slate-400 text-sm italic">Data Tidak Ada ...</div>
+                      <div className="w-full py-5 flex justify-center items-center text-slate-400 text-sm italic">
+                        Data Tidak Ada ...
+                      </div>
                     )}
                   </div>
                 </div>
@@ -322,7 +320,7 @@ export default function DataPendudukAdmin() {
             </div>
             <Pagination
               page={currPage}
-              totalPage={totalPages}
+              totalPage={isLoading ? 0 : totalPages}
               handleNextPage={handleNextPage}
               handlePrevPage={handlePrevPage}
             />
