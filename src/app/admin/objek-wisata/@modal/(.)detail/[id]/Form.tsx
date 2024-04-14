@@ -47,37 +47,37 @@ export default function Form({ id, urll }: AddDataProps) {
       router.back();
     }
   };
-  const handleSubmitEdit = async (e: any) => {
-    e.preventDefault();
-    const res = {
-      newWisata: e.target.wisata.value,
-      newLokasi: e.target.lokasi.value,
-      newPengelola: e.target.pengelola.value,
-      newImg1: e.target.img1.value,
-      newImg2: e.target.img2.value,
-      newImg3: e.target.img3.value,
-    };
+    const handleSubmitEdit = async (e: any) => {
+      e.preventDefault();
+      const res = {
+        newWisata: e.target.wisata.value,
+        newLokasi: e.target.lokasi.value,
+        newPengelola: e.target.pengelola.value,
+        newImg1: e.target.img1.value,
+        newImg2: e.target.img2.value,
+        newImg3: e.target.img3.value,
+      };
 
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/objek-wisata/${id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify(res),
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/objek-wisata/${id}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify(res),
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Gagal Mengedit Data!");
         }
-      );
-      if (!response.ok) {
-        throw new Error("Gagal Mengedit Data!");
+        window.location.reload();
+        router.back();
+      } catch (error) {
+        console.log(error);
       }
-      window.location.reload();
-      router.back();
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    };
   return (
     <div
       ref={overlay}

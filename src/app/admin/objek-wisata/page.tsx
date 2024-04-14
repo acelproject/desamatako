@@ -1,52 +1,65 @@
 "use client";
 import TableThead from "@/components/elements/table/TableThead";
-import TableTbody from "@/components/elements/table/TableTbody";
 import TableTh from "@/components/elements/table/TableTh";
 import TableTd from "@/components/elements/table/TableTd";
 import { FaRegEye, FaRegEdit, FaPlus } from "react-icons/fa";
 import { GoTrash } from "react-icons/go";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ShowEntries from "@/components/elements/table/ShowEntries";
 import TambahDataObjekWisata from "./TambahData";
-import EditDataObjek from "./EditData";
 import useSWR from "swr";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Pagination from "@/components/elements/Pagination";
 
+import dynamic from "next/dynamic";
+
+const TableTbody = dynamic(
+  () => import("@/components/elements/table/TableTbody"),
+  {
+    ssr: false,
+  }
+);
+
+// const PER_PAGE = 1;
+
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function DataPendudukAdmin() {
   const [showAddData, setShowAddData] = useState(false);
+  const closeShowAddData = () => {
+    setShowAddData(false);
+  };
 
   const [searchQuery, setSearchQuery] = useState("");
   const [fillteredObjek, setFillteredObjek] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
   const [paginatedData, setPaginatedData] = useState([]);
+  const [currPage, setCurrPage] = useState(1);
+  const [notFound, setNotFound] = useState(false);
+  const [perPages, setPerPages] = useState(1);
+  const [showEntries, setShowEntries] = useState(false);
 
-  const [currPage,setCurrPage]=useState(1)
-
-  const router = useRouter();
-
-  const closeShowAddData = () => {
-    setShowAddData(false);
-  };
-
-  const { data, error } = useSWR(
+  // fetch data with SWR
+  const { data, error, isLoading } = useSWR(
     `${process.env.NEXT_PUBLIC_API_URL}/api/objek-wisata`,
     fetcher
   );
 
-  const objekWisata: any = { data: data?.objekWisata };
+  const objekWisata: any = { data: data };
 
+  // search & filter data
   const handleSearch = (e: any) => {
     // setSearchQuery(e.target.value);
 
     if (searchQuery === "") {
       setFillteredObjek([]);
+      pagination(fillteredObjek, currPage);
+      setNotFound(true)
+      console.log(fillteredObjek);
     } else {
       const lowercaseQuery = searchQuery.toLowerCase();
-      const filltered = objekWisata.data?.filter(
+      const filltered = objekWisata.data.objekWisata?.filter(
         (objek: any) =>
           objek.wisata?.toLowerCase().includes(lowercaseQuery) ||
           objek.lokasi?.toLowerCase().includes(lowercaseQuery) ||
@@ -54,9 +67,62 @@ export default function DataPendudukAdmin() {
       );
       console.log(filltered);
       setFillteredObjek(filltered);
+      paginationFiltered(filltered, currPage);
+      setNotFound(false)
+    }
+  };
+  
+  const handleCountEntries =(value:number)=>{
+    setPerPages(value)
+    paginationFiltered(objekWisata.data?.objekWisata, currPage);
+    setFillteredObjek(objekWisata.data?.objekWisata);
+  }
+  // Pagination fungtion
+  const paginationFiltered = (data: any, currPage = 1) => {
+    setTotalPages(Math.ceil(data?.length / perPages));
+    const startIndex = (currPage - 1) * perPages;
+
+    const endIndex = startIndex + perPages;
+
+    setPaginatedData(data?.slice(startIndex, endIndex));
+  };
+  // Pagination fungtion
+  const pagination = (data: any, currPage = 1) => {
+    setTotalPages(Math.ceil(data?.objekWisata?.length / perPages));
+    const startIndex = (currPage - 1) * perPages;
+
+    const endIndex = startIndex + perPages;
+
+    setPaginatedData(data?.objekWisata?.slice(startIndex, endIndex));
+  };
+
+
+
+
+
+  useEffect(() => {
+    pagination(objekWisata.data, currPage);
+    paginationFiltered(objekWisata.data?.objekWisata, currPage);
+    setFillteredObjek(objekWisata.data?.objekWisata);
+  }, [objekWisata.data, objekWisata.data?.objekWisata,perPages]);
+
+  const handlePrevPage = () => {
+    if (currPage > 1) {
+      setCurrPage(currPage - 1);
+      pagination(objekWisata.data, currPage - 1);
+      paginationFiltered(fillteredObjek, currPage - 1);
+    }
+  };
+  const handleNextPage = () => {
+    if (currPage < totalPages) {
+      setCurrPage(currPage + 1);
+      pagination(objekWisata.data, currPage + 1);
+      paginationFiltered(fillteredObjek, currPage + 1);
     }
   };
 
+  // delete data
+  const router = useRouter();
   const removeObjekWisata = async ({
     id,
     wisata,
@@ -125,6 +191,10 @@ export default function DataPendudukAdmin() {
               handleSearch={handleSearch}
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
+              handleCountEntries={handleCountEntries}
+              perPages={perPages}
+              setShowEntries={setShowEntries}
+              showEntries={showEntries}
             />
 
             <div className="flex flex-col overflow-x-auto scrollbar-thin scrollbar-w-4 scrollbar-h-4 ">
@@ -144,9 +214,9 @@ export default function DataPendudukAdmin() {
                         <TableTh>foto 3</TableTh>
                         <TableTh>Aksi</TableTh>
                       </TableThead>
-                      {objekWisata.data?.length &&
-                      fillteredObjek.length === 0 ? (
-                        objekWisata.data?.map((item: any, i: any) => (
+                      {objekWisata.data?.objekWisata.length ||
+                      fillteredObjek?.length !== 0 ? (
+                        paginatedData?.map((item: any, i: any) => (
                           <TableTbody key={i}>
                             <TableTd>{i + 1}</TableTd>
                             <TableTd>{item.wisata}</TableTd>
@@ -215,9 +285,7 @@ export default function DataPendudukAdmin() {
                             </TableTd>
                           </TableTbody>
                         ))
-                      ) : objekWisata.data?.length === 0 ? (
-                        <div>data kosong...</div>
-                      ) : (
+                      ) : isLoading ? (
                         <TableTbody>
                           <TableTd>Memuat ...</TableTd>
                           <TableTd>Memuat ...</TableTd>
@@ -237,13 +305,27 @@ export default function DataPendudukAdmin() {
                             </div>
                           </TableTd>
                         </TableTbody>
+                      ) : (
+                        ""
                       )}
                     </table>
+
+                    {objekWisata.data?.objekWisata.length === 0  && (
+                      <div className="w-full py-5 flex justify-center items-center text-slate-400 text-sm italic">Masih Kosong ...</div>
+                    )}
+                    {notFound === true && (
+                      <div className="w-full py-5 flex justify-center items-center text-slate-400 text-sm italic">Data Tidak Ada ...</div>
+                    )}
                   </div>
                 </div>
               </div>
             </div>
-            <Pagination  />
+            <Pagination
+              page={currPage}
+              totalPage={totalPages}
+              handleNextPage={handleNextPage}
+              handlePrevPage={handlePrevPage}
+            />
           </div>
         </div>
       </div>

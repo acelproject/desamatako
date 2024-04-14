@@ -6,14 +6,9 @@ import { TbSelector } from "react-icons/tb";
 
 
 
-const ShowEntries = ({handleSearch,searchQuery,setSearchQuery}:any) => {
-  const [showEntries, setShowEntries] = useState(false);
-  const [countEntries, setcountShowEntries] = useState(10);
+const ShowEntries = ({handleSearch,searchQuery,setSearchQuery,handleCountEntries,setShowEntries,showEntries,perPages}:any) => {
 
 
-  const handleHideEntries = () => {
-    setShowEntries(!showEntries);
-  };
   const ref: any = useRef(null);
   const pathname = usePathname();
   return (
@@ -29,9 +24,9 @@ const ShowEntries = ({handleSearch,searchQuery,setSearchQuery}:any) => {
           className={`btn-entries border relative flex gap-1 items-center justify-center rounded-md w-14 py-1  ${
             showEntries ? "focus:border-primary" : ""
           }`}
-          onClick={() => handleHideEntries()}
+          onClick={() => setShowEntries(!showEntries)}
         >
-          <div>{countEntries}</div>
+          <div>{`${perPages}`}</div>
           <div>
             <TbSelector />
           </div>
@@ -42,27 +37,27 @@ const ShowEntries = ({handleSearch,searchQuery,setSearchQuery}:any) => {
           >
             <div
               className="text-start ps-3 hover:bg-primary hover:text-white"
-              onClick={() => setcountShowEntries(10)}
+              onClick={() => handleCountEntries(1)}
             >
-              10
+              1
             </div>
             <div
               className="text-start ps-3 hover:bg-primary hover:text-white"
-              onClick={() => setcountShowEntries(25)}
+              onClick={() => handleCountEntries(2)}
             >
-              25
+              2
             </div>
             <div
               className="text-start ps-3 hover:bg-primary hover:text-white"
-              onClick={() => setcountShowEntries(50)}
+              onClick={() => handleCountEntries(3)}
             >
-              50
+              3
             </div>
             <div
               className="text-start ps-3 hover:bg-primary hover:text-white"
-              onClick={() => setcountShowEntries(100)}
+              onClick={() => handleCountEntries(4)}
             >
-              100
+              4
             </div>
           </div>
         </button>

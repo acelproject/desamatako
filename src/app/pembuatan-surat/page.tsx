@@ -9,71 +9,86 @@ import SuratKetKematianComponent from "../../components/fragments/pembuatan-sura
 import SuratKetMenikahComponent from "../../components/fragments/pembuatan-surat/adding-form/surat-ket-menikah/SuratKetMenikah";
 import SuratKuasaComponent from "../../components/fragments/pembuatan-surat/adding-form/surat-ket-usaha/SuratKuasaComponent";
 import SuratSKPTComponent from "../../components/fragments/pembuatan-surat/adding-form/surat-skpt/SuratSKPTComponent";
+import { useRouter } from "next/navigation";
+import { set } from "mongoose";
 
 const menusSurat = [
   {
     id: 1,
     nama: "SURAT HIBAH",
+    category: "hibah",
     addForm: true,
   },
   {
     id: 2,
     nama: "SURAT JUAL BELI",
+    category: "jual_beli",
     addForm: true,
   },
   {
     id: 3,
     nama: "SURAT KETERANGAN",
+    category: "keterangan",
     addForm: false,
   },
   {
     id: 4,
     nama: "SURAT KETERANGAN BERKELAKUAN BAIK",
+    category: "kelakuan_baik",
     addForm: false,
   },
   {
     id: 5,
     nama: "SURAT KETERANGAN DOMISILI",
+    category: "domisili",
     addForm: false,
   },
   {
     id: 6,
     nama: "SURAT KETERANGAN HILANG",
+    category: "hilang",
     addForm: false,
   },
   {
     id: 7,
     nama: "SURAT KETERANGAN KEMATIAN",
+    category: "kematian",
     addForm: true,
   },
   {
     id: 8,
     nama: "SURAT KETERANGAN MENIKAH",
+    category: "nikah",
     addForm: true,
   },
   {
     id: 9,
     nama: "SURAT KETERANGAN TIDAK MAMPU",
+    category: "tidak_mampu",
     addForm: false,
   },
   {
     id: 10,
     nama: "SURAT KETERANGAN USAHA",
+    category: "usaha",
     addForm: true,
   },
   {
     id: 11,
     nama: "SURAT KUASA",
+    category: "kuasa",
     addForm: true,
   },
   {
     id: 12,
     nama: "SURAT SKPT",
+    category: "skpt",
     addForm: true,
   },
   {
     id: 13,
     nama: "SURAT SKPWNI",
+    category: "skpwni",
     addForm: true,
   },
 ];
@@ -101,16 +116,77 @@ export default function WritingLetters() {
   // form tambhan untuk jenis surat tertentu
   const [addForm, setAddForm] = useState(false);
   const [formType, setFormType] = useState("");
+  const [categorySurat, setCategorySurat] = useState("");
 
   const handleDropDusun = (e: any) => {
     setDusun(e);
     setActiveDusun(!activeDusun);
   };
-  const handleDropJenis = ({ title, addForm, formType }: any) => {
+  const handleDropJenis = ({ title, addForm, formType,category }: any) => {
+    setCategorySurat(category)
     setTextJenis(title);
     setAddForm(addForm);
     setFormType(formType);
     setActiveTypeLetter(!activeTypeLetter);
+  };
+
+  const router = useRouter()
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    const res = {
+      nama: e.target.nama.value,
+      nik: e.target.nik.value,
+      noWa: e.target.noWa.value,
+      surat:textJenis,
+      jenisSurat: categorySurat,
+      alamat: textDusun,
+      kk: e.target.kk.value,
+      ktp: e.target.ktp.value,
+      status:"diproses",
+    };
+    // if (!res.nama) {
+    //   alert("Nama kosong");
+    //   return;
+    // }
+    // if (!res.nik) {
+    //   alert("NIK Kosong");
+    //   return;
+    // }
+    // if (!res.noWa) {
+    //   alert("Nomor whatsapp kosong");
+    //   return;
+    // }
+    // if (!res.jenisSurat) {
+    //   alert("jenis surat belum dipilih");
+    //   return;
+    // }
+    // if (!res.kk) {
+    //   alert("KK kosong");
+    //   return;
+    // }
+    // if (!res.ktp) {
+    //   alert("KTP kosong");
+    //   return;
+    // }
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/surat-masuk`, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body:JSON.stringify(res)
+      });
+
+      if (response.ok) {
+        window.location.reload()
+        router.refresh()
+      }else{
+        throw new Error("Ada yang salah")
+      }
+    } catch (error) {
+      alert(error)
+      return
+    }
   };
   return (
     <PagesWrapper pageTitle="Pembuatan Surat">
@@ -123,7 +199,7 @@ export default function WritingLetters() {
         <div className="w-full flex px-20 gap-10 ">
           <div className="w-10/12 mx-auto ">
             <h1 className="text-2xl font-semibold  mb-5"> Identitas pemohon</h1>
-            <form action="">
+            <form action="" onSubmit={handleSubmit}>
               <div className="flex gap-10">
                 <div className="flex flex-col w-full">
                   <label htmlFor="" className="font-medium mb-2">
@@ -133,7 +209,7 @@ export default function WritingLetters() {
                     type=""
                     className="w-full placeholder:text-mydark placeholder:font-serif placeholder:text-lg border border-gray-300 py-2 px-3 rounded-md focus:outline-none"
                     placeholder=""
-                    name=""
+                    name="nama"
                   />
                 </div>
                 <div className="flex flex-col w-full">
@@ -144,7 +220,7 @@ export default function WritingLetters() {
                     type=""
                     className="w-full placeholder:text-mydark placeholder:font-serif placeholder:text-lg border border-gray-300 py-2 px-3 rounded-md focus:outline-none"
                     placeholder=""
-                    name=""
+                    name="nik"
                   />
                 </div>
               </div>
@@ -157,7 +233,7 @@ export default function WritingLetters() {
                     type=""
                     className="w-full placeholder:text-mydark placeholder:font-serif placeholder:text-lg border border-gray-300 py-2 px-3 rounded-md focus:outline-none"
                     placeholder=""
-                    name=""
+                    name="noWa"
                   />
                 </div>
                 <div className="flex flex-col w-full">
@@ -209,6 +285,7 @@ export default function WritingLetters() {
                     className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 p-1"
                     id="file_input"
                     type="file"
+                    name="ktp"
                   />
                 </div>
                 <div
@@ -228,6 +305,7 @@ export default function WritingLetters() {
                     className="block w-1/2 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 p-1"
                     id="file_input"
                     type="file"
+                    name="kk"
                   />
                 </div>
               </div>
@@ -368,6 +446,7 @@ export default function WritingLetters() {
                         className="hover:bg-primary px-3 hover:text-white py-1 transition-all duration-100"
                         onClick={() =>
                           handleDropJenis({
+                            category:data.category,
                             title: data.nama,
                             addForm: data.addForm,
                             formType: data.nama,
@@ -418,7 +497,7 @@ export default function WritingLetters() {
               {/* End Adding form */}
 
               <div className="mt-10 flex justify-end">
-                <button className="bg-primary uppercase py-1 px-8 font-bold text-white rounded-md shadow-md">
+                <button type="submit" className="bg-primary uppercase py-1 px-8 font-bold text-white rounded-md shadow-md">
                   kirim
                 </button>
               </div>

@@ -139,13 +139,13 @@ export default function AdminWrapper({ children }: any) {
           {/* Menu */}
           <div className="w-ful">
             <h2 className=" text-gray-400 text-sm mb-4 px-4">MENU</h2>
-            <ul className=" flex flex-col gap-2">
+            <div className=" flex flex-col gap-2">
               {menus.map((menu) => (
                 <div className="" key={menu.id}>
                   <ListMenu menu={menu} />
                 </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>

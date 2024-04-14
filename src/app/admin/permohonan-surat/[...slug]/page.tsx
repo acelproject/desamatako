@@ -1,11 +1,13 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import AdminWrapper from "../../AdminWrapper";
-import { useRouter } from "next/router";
+
 import DetailSuratHibahView from "../DetailSuratHibahView/DetailSuratHibahView";
 import DetailSuratJualBeliView from "../DetailSuratJualBeliView";
 import Link from "next/link";
 import useSWR from "swr";
+import { useEffect, useState } from "react";
 
 type DetailSuratProps = {
   params: { slug: string };
@@ -37,12 +39,62 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function AdminDetailPermohonanSurat(props: DetailSuratProps) {
   const { params } = props;
+  const router=useRouter()
   const { data, error } = useSWR(
     `${process.env.NEXT_PUBLIC_API_URL}/api/surat-masuk/${params.slug[0]}`,
     fetcher
   );
   const detailSuratMasuk: any = { data: data?.detailSuratMasuk };
   console.log(detailSuratMasuk);
+
+  const[newStatus,setNewStatus]=useState("")
+
+
+  
+
+  useEffect(() => {
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/surat-masuk/${params.slug[0]}`;
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+        // console.log(json.slip.advice);
+        setNewStatus("diproses");
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleProses = async (e: any) => {
+    e.preventDefault();
+    const res = {
+      newStatus:newStatus,
+    };
+
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/surat-masuk/${params.slug[0]}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(res),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Gagal Mengedit Data!");
+      }
+      window.location.reload();
+      router.back();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <div className="w-full px-7 text-center">
@@ -58,12 +110,12 @@ export default function AdminDetailPermohonanSurat(props: DetailSuratProps) {
             </h1>
           </div>
           <div className="p-5 pb-5 border border-slate-100">
-            {params.slug[1] === "surat_tanah" && (
+            {params.slug[1] === "hibah" && (
               <>
                 <DetailSuratHibahView data={detailSuratMasuk} />
               </>
             )}
-            {params.slug[1] === "surat_nikah" && (
+            {params.slug[1] === "jual_beli" && (
               <DetailSuratJualBeliView data={detailSuratMasuk} />
             )}
             <div
@@ -76,12 +128,12 @@ export default function AdminDetailPermohonanSurat(props: DetailSuratProps) {
               >
                 Kembali
               </Link>
-              <Link
-                href={`/admin/permohonan-surat`}
+              <button
                 className="bg-primary px-2 py-1 rounded-sm"
+                onClick={handleProses}
               >
                 Proses
-              </Link>
+              </button>
             </div>
           </div>
         </div>

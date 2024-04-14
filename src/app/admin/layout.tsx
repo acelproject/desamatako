@@ -127,11 +127,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Menu */}
           <div className="w-ful">
             <h2 className=" text-gray-400 text-sm mb-4 px-4">MENU</h2>
-            <ul className=" flex flex-col gap-2">
+            <div className=" flex flex-col gap-2">
               {menus.map((menu) => (
-                <div className="" key={menu.id}>
-                  <ListMenu menu={menu} />
-                </div>
+                // <div className="" key={menu.id}>
+                // </div>
+                  <ListMenu menu={menu} key={menu.id} />
               ))}
               <div
                 className="flex text-gray-300 hover:text-white items-center justify-between gap-2 px-4 py-2 transition-all duration-150 hover:bg-slate-700 rounded-sm"
@@ -144,7 +144,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <span className="font-medium text-md">Logout</span>
                 </div>
               </div>
-            </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -193,27 +193,27 @@ const ListMenu = ({ menu }: any) => {
           }`}
         >
           <Link href={`/admin/profil-desa/sejarah`}>
-            <li className="hover:text-white text-gray-300 cursor-pointer">
+            <div className="hover:text-white text-gray-300 cursor-pointer">
               Sejarah
-            </li>
+            </div>
           </Link>
-          <li className="hover:text-white text-gray-300 cursor-pointer">
+          <div className="hover:text-white text-gray-300 cursor-pointer">
             Visi & Misi
-          </li>
-          <li className="hover:text-white text-gray-300 cursor-pointer">
+          </div>
+          <div className="hover:text-white text-gray-300 cursor-pointer">
             <Link href={`/admin/profil-desa/struktur-organisasi`}>
               Struktur Organisasi
             </Link>
-          </li>
-          <li className="hover:text-white text-gray-300 cursor-pointer">
+          </div>
+          <div className="hover:text-white text-gray-300 cursor-pointer">
             RPJM Desa
-          </li>
-          <li className="hover:text-white text-gray-300 cursor-pointer">
+          </div>
+          <div className="hover:text-white text-gray-300 cursor-pointer">
             Potensi Desa
-          </li>
-          <li className="hover:text-white text-gray-300 cursor-pointer">
+          </div>
+          <div className="hover:text-white text-gray-300 cursor-pointer">
             Tingkat Perkembangan Desa
-          </li>
+          </div>
         </div>
       )}
       {menu.title === "Kategori" && (
@@ -223,14 +223,14 @@ const ListMenu = ({ menu }: any) => {
           }`}
         >
           <Link href={`/admin/kategori/alamat`}>
-            <li className="hover:text-white text-gray-300 cursor-pointer">
+            <div className="hover:text-white text-gray-300 cursor-pointer">
               Alamat
-            </li>
+            </div>
           </Link>
           <Link href={`/admin/kategori/jenis-surat`}>
-            <li className="hover:text-white text-gray-300 cursor-pointer">
+            <div className="hover:text-white text-gray-300 cursor-pointer">
               Jenis Surat
-            </li>
+            </div>
           </Link>
         </div>
       )}
@@ -241,14 +241,14 @@ const ListMenu = ({ menu }: any) => {
           }`}
         >
           <Link href={`/admin/settings/biodata`}>
-            <li className="hover:text-white text-gray-300 cursor-pointer">
+            <div className="hover:text-white text-gray-300 cursor-pointer">
               Biodata
-            </li>
+            </div>
           </Link>
           <Link href={`/admin/settings/users`}>
-            <li className="hover:text-white text-gray-300 cursor-pointer">
+            <div className="hover:text-white text-gray-300 cursor-pointer">
               Users
-            </li>
+            </div>
           </Link>
         </div>
       )}

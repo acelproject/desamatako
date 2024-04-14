@@ -7,19 +7,6 @@ import { GoTrash } from "react-icons/go";
 import ShowEntries from "./table/ShowEntries";
 import useSWR from "swr";
 
-// const wargas = [
-//   {
-//     id: 1,
-//     nama: "Andreas Suge",
-//     jenisSurat: "Surat Keterangan Nikah",
-//   },
-//   {
-//     id: 2,
-//     nama: "Marchel Lumimpah",
-//     jenisSurat: "Surat Keterangan Usaha",
-//   },
-// ];
-
 // const getSuratMasuk = async () => {
 //   try {
 //     const res = await fetch(
@@ -49,9 +36,27 @@ export default function Table(props: { title: string }) {
     fetcher
   );
 
-  const suratMasuk: any = { data: data?.suratMasuk };
+  const permohonanSurat: any = { data: data?.suratMasuk };
 
+  console.log(permohonanSurat);
+
+  const suratMasuk = permohonanSurat.data?.filter(
+    (surat: any) => surat.status === "masuk"
+  );
+  const suratDiProses = permohonanSurat.data?.filter(
+    (surat: any) => surat.status === "diproses"
+  );
   console.log(suratMasuk);
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [fillteredObjek, setFillteredObjek] = useState([]);
+  const [totalPages, setTotalPages] = useState(0);
+  const [paginatedData, setPaginatedData] = useState([]);
+  const [currPage, setCurrPage] = useState(1);
+  const [notFound, setNotFound] = useState(false);
+  const [perPages, setPerPages] = useState(1);
+  const [showEntries, setShowEntries] = useState(false);
+
   return (
     <div className="">
       <div className="flex bg-white border-b ">
@@ -152,8 +157,9 @@ export default function Table(props: { title: string }) {
                         </th>
                       </tr>
                     </thead>
-                    {suratMasuk.data?.length &&
-                      suratMasuk.data?.map((item: any, i: any) => (
+                    {tabs === 1 &&
+                      suratMasuk?.length &&
+                      suratMasuk?.map((item: any, i: any) => (
                         <tbody key={i}>
                           <tr className="border-b dark:bg-neutral-700 font-normal">
                             <td className="whitespace-nowrap px-6 py-4 font-medium">
@@ -172,10 +178,47 @@ export default function Table(props: { title: string }) {
                               {item.noWa}
                             </td>
                             <td className="whitespace-nowrap px-6 py-4">
-                              {item.jenisSurat}
+                              {item.surat}
                             </td>
                             <td className="whitespace-nowrap px-6 py-4">
-                              <Link href={`/admin/permohonan-surat/${item._id}/${item.jenisSurat}`}>
+                              <Link
+                                href={`/admin/permohonan-surat/${item._id}/${item.jenisSurat}`}
+                              >
+                                <span className="text-slate-600 hover:text-primary text-lg">
+                                  <FaRegEye />
+                                </span>
+                              </Link>
+                            </td>
+                          </tr>
+                        </tbody>
+                      ))}
+                    {tabs === 2 &&
+                      suratDiProses?.length &&
+                      suratDiProses?.map((item: any, i: any) => (
+                        <tbody key={i}>
+                          <tr className="border-b dark:bg-neutral-700 font-normal">
+                            <td className="whitespace-nowrap px-6 py-4 font-medium">
+                              {i + 1}
+                            </td>
+                            <td className="whitespace-nowrap px-6 py-4">
+                              {item.createdAt}
+                            </td>
+                            <td className="whitespace-nowrap px-6 py-4">
+                              {item.nama}
+                            </td>
+                            <td className="whitespace-nowrap px-6 py-4">
+                              {item.nama}
+                            </td>
+                            <td className="whitespace-nowrap px-6 py-4">
+                              {item.noWa}
+                            </td>
+                            <td className="whitespace-nowrap px-6 py-4">
+                              {item.surat}
+                            </td>
+                            <td className="whitespace-nowrap px-6 py-4">
+                              <Link
+                                href={`/admin/permohonan-surat/${item._id}/${item.jenisSurat}`}
+                              >
                                 <span className="text-slate-600 hover:text-primary text-lg">
                                   <FaRegEye />
                                 </span>

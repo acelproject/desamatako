@@ -5,7 +5,12 @@ const suratMasukSchema = new Schema(
     nama: String,
     nik: String,
     noWa: String,
+    alamat: String,
+    ktp: String,
+    kk: String,
+    surat: String,
     jenisSurat: String,
+    status: String,
   },
   { timestamps: true }
 );

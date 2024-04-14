@@ -10,9 +10,24 @@ export async function PUT(request, { params }) {
     newNik: nik,
     newNoWa: noWa,
     newJenisSurat: jenisSurat,
+    newSurat: surat,
+    newAlamat: alamat,
+    newKk: kk,
+    newKtp: ktp,
+    newStatus: status,
   } = await request.json();
   await connectMongoDB();
-  await SuratMasuk.findByIdAndUpdate(id, { nama, nik, noWa, jenisSurat });
+  await SuratMasuk.findByIdAndUpdate(id, {
+    nama,
+    nik,
+    noWa,
+    surat,
+    jenisSurat,
+    alamat,
+    kk,
+    ktp,
+    status,
+  });
 
   return NextResponse.json({ message: "Berhasil Diedit." }, { status: 200 });
 }
@@ -22,7 +37,7 @@ export async function GET(request, { params }) {
   await connectMongoDB();
   const detailSuratMasuk = await SuratMasuk.findOne({ _id: id });
 
-  return NextResponse.json({ detailSuratMasuk}, { status: 200 });
+  return NextResponse.json({ detailSuratMasuk }, { status: 200 });
 }
 // export async function GET(request, { params }) {
 //   const { jenisSurat } = params;

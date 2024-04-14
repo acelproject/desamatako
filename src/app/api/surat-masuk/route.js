@@ -2,14 +2,24 @@ import { NextResponse } from "next/server";
 import SuratMasuk from "../../../models/surat_masuk";
 import connectMongoDB from "../../../lib/mongodb";
 
-
 // create data
 export async function POST(request) {
-  const { nama, nik, noWa, jenisSurat } = await request.json();
+  const { nama, nik, noWa, surat, jenisSurat, alamat, ktp, kk,status } =
+    await request.json();
   await connectMongoDB();
-  await SuratMasuk.create({ nama, nik, noWa, jenisSurat });
+  await SuratMasuk.create({
+    nama,
+    nik,
+    noWa,
+    surat,
+    jenisSurat,
+    alamat,
+    ktp,
+    kk,
+    status
+  });
   return NextResponse.json(
-    { message: "Surat Masuk berhasil dibuat" },
+    { message: "Surat Masuk berhasil dibuat " },
     { status: 201 }
   );
 }
@@ -20,7 +30,6 @@ export async function GET() {
   const suratMasuk = await SuratMasuk.find();
   return NextResponse.json({ suratMasuk });
 }
-
 
 // delete data
 export async function DELETE(request) {
@@ -33,6 +42,6 @@ export async function DELETE(request) {
 // export async function GET(request,{params}) {
 //     await connectMongoDB();
 //     const suratMasuk = await SuratMasuk.find(jenisSurat);
-  
+
 //     return NextResponse.json({suratMasuk});
 //   }

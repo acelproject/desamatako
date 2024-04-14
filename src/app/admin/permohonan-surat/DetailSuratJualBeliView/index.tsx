@@ -21,7 +21,7 @@ export default function DetailSuratJualBeliView(params: { data: any }) {
           <div className="flex text-sm bg-slate-200">
             <div className="w-[30%]  ps-3 font-semibold py-2">Jenis Surat</div>
             <div className="w-[5%] text-center py-2">:</div>
-            <div className="w-[65%]  ps-3 py-2">{data.data?.jenisSurat}</div>
+            <div className="w-[65%]  ps-3 py-2">{data.data?.surat}</div>
           </div>
         </div>
         <div className="w-full ">
