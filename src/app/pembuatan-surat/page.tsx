@@ -142,7 +142,7 @@ export default function WritingLetters() {
       alamat: textDusun,
       kk: e.target.kk.value,
       ktp: e.target.ktp.value,
-      status:"diproses",
+      status:"masuk",
     };
     // if (!res.nama) {
     //   alert("Nama kosong");
